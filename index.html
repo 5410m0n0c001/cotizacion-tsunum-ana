@@ -1419,7 +1419,6 @@
         document.body.style.overflow = '';
         window.scrollTo(0, 0);
         preloader.classList.add('fade-out');
-        bgAudio.play().then(() => { audioPlaying = true; updateAudioIcon(); }).catch(() => {});
     });
     audioToggle.addEventListener('click', () => {
         if (audioPlaying) { bgAudio.pause(); audioPlaying = false; }
