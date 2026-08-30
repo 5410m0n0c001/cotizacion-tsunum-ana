@@ -351,6 +351,21 @@
             transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
         .slide:hover { transform:translateY(-4px); box-shadow:0 14px 32px rgba(31,31,31,.12); }
         .slide img { width:100%; height:auto; display:block; }
+        /* Carrusel de FOTOS de servicio: todas se recortan al mismo formato para que
+           no se vean de distinto tamaño (las hojas del minuto a minuto van completas). */
+        .slides-fotos .slide img { aspect-ratio:4/3; height:auto; object-fit:cover; object-position:center; }
+
+        /* Video vertical (Short) incrustado dentro de una tarjeta de servicio */
+        .include-img-container.is-short { height:300px; background:#000; display:flex; align-items:center; justify-content:center; }
+        .include-img-container.is-short iframe { height:100%; width:calc(300px * 9 / 16); border:0; display:block; }
+
+        /* Lista de servicios descritos solo con texto (las fotos van en el carrusel de arriba) */
+        .servicios-lista { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-bottom:45px; }
+        .servicio-detalle { background:var(--white); border:1px solid var(--beige); border-left:3px solid var(--primary-pink);
+            border-radius:16px; padding:20px 22px; }
+        .servicio-detalle h4 { font-size:1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+        .servicio-detalle h4 i { color:var(--primary-pink); font-size:.9rem; }
+        .servicio-detalle p { font-size:.85rem; color:var(--gray-text); }
         .slide-nav { position:absolute; top:45%; transform:translateY(-50%); z-index:5; width:42px; height:42px; border-radius:50%;
             border:1px solid var(--beige); background:var(--white); color:var(--primary-pink); cursor:pointer; font-size:1rem;
             box-shadow:0 6px 18px rgba(31,31,31,.14); display:flex; align-items:center; justify-content:center; }
@@ -980,8 +995,8 @@
 
             <!-- ═══ BLOQUE 2: CEREMONIA RELIGIOSA ═══ -->
             <div class="gallery-block-title reveal reveal-left">2 · Ceremonia Religiosa (1 Hora)</div>
-            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Fotos reales de ceremonias religiosas anteriores de Primavera Events Group — así se ve el kit ceremonial, la sonorización y el momento con el oficiante. Desliza para ver todas.</p>
-            <div class="slides-section reveal" style="margin-top:0;">
+            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Fotos reales de ceremonias religiosas de Primavera Events Group. Desliza para ver el montaje completo: el kit ceremonial, la sonorización y el momento con el oficiante.</p>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
                 <div class="slides-wrap">
                     <button class="slide-nav prev" id="slidePrevCeremonia" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                     <div class="slides-track" id="slidesTrackCeremonia">
@@ -996,10 +1011,19 @@
                 </div>
                 <div class="slides-dots" id="slidesDotsCeremonia"></div>
             </div>
-            <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Kit religioso completo"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo</h4><p>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_sonorizacion.jpg" alt="Sonorización de la ceremonia"></div><div class="include-content"><h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia</h4><p>Micrófono inalámbrico y audio para toda la ceremonia religiosa.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_oficiante.jpg" alt="Oficiante y coro"></div><div class="include-content"><h4><i class="fas fa-cross"></i> Oficiante y Coro</h4><p>Padre / oficiante religioso y coro acompañando la ceremonia.</p></div></div></div>
+            <div class="servicios-lista">
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo</h4>
+                    <p>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia</h4>
+                    <p>Micrófono inalámbrico y audio profesional para toda la ceremonia religiosa.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-cross"></i> Oficiante y Coro</h4>
+                    <p>Padre / oficiante religioso y coro en vivo acompañando la ceremonia.</p>
+                </div>
             </div>
 
             <!-- ═══ BLOQUE 3: RECEPCIÓN Y CÓCTEL DE BIENVENIDA ═══ -->
@@ -1036,7 +1060,8 @@
             <!-- ═══ BLOQUE 6: EQUIPO DE SERVICIO Y STAFF ═══ -->
             <div class="gallery-block-title reveal reveal-left">6 · Equipo de Servicio y Staff</div>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="coordinacion_servicio.webp" alt="Coordinación del evento"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Staff Completo</h4><p>Staff de limpieza general, hostess, meseros, capitán de meseros y 1 coordinador de servicio.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="coordinacion_servicio.webp" alt="Coordinación del evento"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Coordinador de Servicio</h4><p>1 coordinador dedicado, más staff de limpieza general y hostess.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-figura"><img class="include-img figura" loading="lazy" decoding="async" src="capitan.webp" alt="Capitán de meseros"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Capitán de Meseros</h4><p>Supervisión ejecutiva del servicio durante todo el evento.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="meseros.webp" alt="Meseros capacitados"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Meseros Capacitados</h4><p>Atención de mesas durante todo el servicio de banquete.</p></div></div></div>
             </div>
 
@@ -1064,15 +1089,18 @@
             <div class="gallery-block-title reveal reveal-left">9 · Todo lo que te Llevas de Cortesía (Resumen Visual)</div>
             <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Nada de esto forma parte del paquete Vuelo Esmeralda estándar — se agrega gratis, sin costo adicional, únicamente en esta propuesta personalizada para Ana. Algunas fotos ya las viste arriba; se repiten aquí para que tengas todo el resumen junto.</p>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Ceremonia religiosa completa"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Ceremonia Religiosa Completa <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Kit ceremonial, sonorización, oficiante y coro. El paquete oficial no contempla ningún servicio de ceremonia.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Kit religioso completo"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Atril, cruz, reclinatorio, banca, arreglo floral, entelado y 60 sillas Tiffany blancas. El paquete oficial no contempla ningún servicio de ceremonia.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_sonorizacion.jpg" alt="Sonorización de la ceremonia"></div><div class="include-content"><h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Micrófono inalámbrico y audio profesional para toda la ceremonia. No contemplado en el paquete oficial.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_oficiante.jpg" alt="Oficiante y coro"></div><div class="include-content"><h4><i class="fas fa-cross"></i> Oficiante y Coro <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Padre / oficiante religioso y coro en vivo. No contemplados en el paquete oficial.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece opcional y con costo adicional.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida con y sin alcohol"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida Con y Sin Alcohol <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Margaritas, piñadas, azulitos y mojitos, con y sin alcohol. No especificado como tal en el paquete oficial.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks 12 toppings"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings) <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>No contemplada específicamente en el paquete oficial.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="saxofonista_boda.jpg" alt="Saxofonista"></div><div class="include-content"><h4><i class="fas fa-music"></i> Saxofonista en Vivo <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Para amenizar la comida. No contemplado en el paquete oficial.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Detonación de 4 chisperos"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 4 Chisperos <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Pirotecnia en frío. No contemplada en el paquete oficial.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel y regalos"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesas Especiales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Mesa especial para pastel y mesa especial para regalos. No incluidas en el paquete estándar.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Con contenido ligero para redes sociales y reel vertical. No incluida en el paquete estándar.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Con contenido ligero para redes sociales y reel vertical. No incluida en el paquete estándar.</p><p style="font-size:.78rem; margin-top:8px;"><em>La invitación demo es de boda: el diseño se personaliza y adapta por completo al estilo y contexto que elija la quinceañera.</em></p><div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;"><a class="btn-complemento" href="https://5410m0n0c001.github.io/INIT-IDEA/modelos-15-anos.html" target="_blank"><i class="fas fa-images"></i> Ver ejemplos de XV</a><a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" style="background:var(--primary-dark);"><i class="fas fa-mobile-screen"></i> Ver invitación demo</a></div></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="banquete_entradas.webp"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Cortesía post-contrato: se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short" data-video="Q4L2srgBU2E"></div><div class="include-content"><h4><i class="fas fa-clipboard-list"></i> Kit Organizador de Eventos <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF) para planear tu evento paso a paso. Descárgalo más abajo.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 10: COMPLEMENTOS ADICIONALES (A COTIZAR POR SEPARADO) ═══ -->
@@ -1140,8 +1168,11 @@
                             <img class="complemento-img" src="invitacion_digital.webp" alt="Invitación Digital Premium">
                             <div class="complemento-body">
                                 <h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.7rem; background:var(--gold-accent); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:600; text-transform:uppercase; margin-left:4px;">Cortesía</span></h4>
-                                <p>Cortesía incluida en esta propuesta. Con contenido ligero para redes sociales y reel vertical.</p>
-                                <a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank">Ver demo interactiva</a>
+                                <p>Cortesía incluida en esta propuesta. Con contenido ligero para redes sociales y reel vertical. <em>La demo es de boda; el diseño se personaliza al estilo de la quinceañera.</em></p>
+                                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                                    <a class="btn-complemento" href="https://5410m0n0c001.github.io/INIT-IDEA/modelos-15-anos.html" target="_blank">Ver ejemplos de XV</a>
+                                    <a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" style="background:var(--primary-dark);">Ver demo interactiva</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1246,7 +1277,6 @@
                 <div class="kit-buttons">
                     <a class="btn-kit" href="smart_event_planner_pro.xlsx" download><i class="fas fa-file-excel"></i> Descargar Excel</a>
                     <a class="btn-kit" href="guia_maestra_primavera.pdf" download><i class="fas fa-file-pdf"></i> Descargar Guía PDF</a>
-                    <a class="btn-kit" href="https://youtube.com/shorts/Q4L2srgBU2E" target="_blank" style="background:#25D366;"><i class="fas fa-play"></i> Ver Video del Kit</a>
                 </div>
             </div>
 
@@ -1508,10 +1538,9 @@
 
     document.body.style.overflow = 'hidden';   // sin scroll detras del preloader
 
-    // Video de portada: se carga hasta que el cliente entra a la propuesta, para que
-    // la pagina abra ligera. Siempre silenciado y en bucle — nunca reproduce audio.
-    function cargaVideoPortada() {
-        var caja = document.getElementById('heroVideo');
+    // Videos de YouTube: se cargan hasta que el cliente entra a la propuesta, para que
+    // la pagina abra ligera. Siempre silenciados y en bucle — nunca reproducen audio.
+    function montaVideo(caja, titulo) {
         if (!caja || caja.dataset.cargado) return;
         caja.dataset.cargado = '1';
         var id = caja.dataset.video;
@@ -1519,17 +1548,24 @@
         f.src = 'https://www.youtube-nocookie.com/embed/' + id +
                 '?autoplay=1&mute=1&loop=1&playlist=' + id +
                 '&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1';
-        f.title = 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda';
+        f.title = titulo;
         f.allow = 'autoplay; encrypted-media';
         f.setAttribute('frameborder', '0');
         caja.appendChild(f);
+    }
+
+    function cargaVideosYoutube() {
+        montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
+        document.querySelectorAll('.is-short[data-video]').forEach(function(c){
+            montaVideo(c, 'Kit Organizador de Eventos — Primavera Events Group');
+        });
     }
 
     btnEnter.addEventListener('click', () => {
         document.body.style.overflow = '';
         window.scrollTo(0, 0);
         preloader.classList.add('fade-out');
-        cargaVideoPortada();
+        cargaVideosYoutube();
     });
     audioToggle.addEventListener('click', () => {
         if (audioPlaying) { bgAudio.pause(); audioPlaying = false; }
