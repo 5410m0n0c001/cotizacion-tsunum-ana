@@ -312,14 +312,15 @@
         .quote-card { position:relative; }
         .calc-section { position:relative; }
 
-        /* ══ Caja de total del cotizador dinámico — Pinning de alto rendimiento ══ */
+        /* ══ Caja de total del cotizador dinamico ══
+           Se mantiene a la vista con position:sticky, que resuelve el navegador.
+           Antes se hacia con JavaScript en cada evento de scroll (leer medidas y
+           luego escribir estilos), lo que provocaba recalculos constantes y hacia
+           que el desplazamiento se sintiera trabado justo en esta seccion. */
         .calc-total-box { background:linear-gradient(135deg,var(--primary-dark) 0%,var(--dark-grad-end) 100%);
             color:var(--white); border-radius:18px; padding:18px 22px; margin-bottom:22px; box-shadow:0 14px 30px rgba(31,31,31,.35);
-            border:1.5px solid var(--gold-accent); width:100%; box-sizing:border-box; transition:box-shadow .2s ease; }
-        .calc-total-box.is-pinned {
-            position:fixed !important; top:10px !important; left:50% !important; transform:translateX(-50%) !important;
-            z-index:99999 !important; box-shadow:0 16px 40px rgba(0,0,0,0.65) !important;
-        }
+            border:1.5px solid var(--gold-accent); width:100%; box-sizing:border-box; transition:box-shadow .2s ease;
+            position:sticky; top:10px; z-index:50; }
         .ctb-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:.85rem; color:rgba(255,255,255,.75); padding:2px 0; }
         .ctb-total { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:10px; padding-top:12px; border-top:1px solid rgba(255,255,255,.18); }
         .ctb-total span:first-child { font-size:.75rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold-accent); font-weight:700; }
@@ -328,11 +329,7 @@
         .ctb-extras-list li { display:flex; justify-content:space-between; gap:10px; font-size:.78rem; color:rgba(255,255,255,.85); padding:3px 0; }
         .ctb-vacio { font-size:.78rem; color:rgba(255,255,255,.55); font-style:italic; }
         @media (max-width:768px){
-            .calc-total-box.is-pinned {
-                top:8px !important; left:50% !important; transform:translateX(-50%) !important;
-                padding:12px 14px !important; border-radius:16px !important;
-                box-shadow:0 12px 30px rgba(0,0,0,0.65) !important; box-sizing:border-box !important;
-            }
+            .calc-total-box { top:8px; padding:12px 14px; border-radius:16px; }
             .ctb-total strong { font-size:1.4rem; }
             .ctb-extras-list { max-height:90px; }
         }
@@ -429,9 +426,13 @@
             position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
             height:300px !important; width:534px !important; border:0 !important; display:block !important; max-width:none !important; }
         @media (max-width:768px) {
-            .expo-img-box.expo-videos { padding:14px 8px !important; gap:8px !important; min-height:0 !important; }
-            .expo-video.is-short { width:129px !important; height:230px !important; }
-            .expo-video.is-short iframe { height:230px !important; width:409px !important; } /* 230 x 16/9 */
+            /* En movil solo se muestra un video de la Expo, mas grande: el navegador
+               reproduce uno a la vez, asi que dos lado a lado dejaban uno en marcha
+               y el otro con su miniatura, lo que se veia disparejo. */
+            .expo-img-box.expo-videos { padding:16px 12px !important; gap:0 !important; min-height:0 !important; }
+            .expo-video.is-short { width:180px !important; height:320px !important; }
+            .expo-video.is-short iframe { height:320px !important; width:569px !important; } /* 320 x 16/9 */
+            .expo-video.is-short:nth-of-type(2) { display:none !important; }
         }
 
         /* Lista de servicios descritos solo con texto (las fotos van en el carrusel de arriba) */
@@ -1236,7 +1237,7 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón <span class="badge-incluido">Cortesía del paquete</span></h4><p>Letras decorativas a elegir «XV» o «LOVE» y corazón rojo iluminado, para el área de recepción y fotos.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja en la recepción"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"><img class="include-img" loading="lazy" decoding="async" src="snacks_jicama_chamoy.webp" alt="Jícama con chamoy y limón"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas, jícama con chamoy, chile en polvo y limón, entre otros toppings.</p></div></div></div>
             </div>
 
@@ -1378,7 +1379,7 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesa Especial para Pastel <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada y decorada para el pastel de XV años.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_regalos_real.jpeg" alt="Mesa especial para regalos"></div><div class="include-content"><h4><i class="fas fa-gift"></i> Mesa Especial para Regalos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada para recibir los obsequios de tus invitados.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Chisperos de pirotecnia en frío"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 2 Chisperos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Dos chisperos de pirotecnia en frío. <em>En esta propuesta se duplican a 4 — ver cortesías adicionales.</em></p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja <span class="badge-incluido">Cortesía del paquete</span></h4><p>Alfombra roja para una entrada espectacular en la recepción.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short" data-video="xNc85w8ZOCk" data-inicio="123"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Alfombra roja para una entrada espectacular en la recepción.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 9B: CORTESÍAS ADICIONALES EXCLUSIVAS DE ESTA PROPUESTA ═══ -->
@@ -1933,39 +1934,96 @@
         if (!caja || caja.dataset.cargado) return;
         caja.dataset.cargado = '1';
         var id = caja.dataset.video;
+        // data-inicio permite arrancar el video en un momento concreto (por ejemplo
+        // la entrada con alfombra roja). Se usa "start" a secas: agregar "end" hacia
+        // que el reproductor terminara y mostrara la pantalla final de YouTube.
+        var inicio = caja.dataset.inicio ? '&start=' + Math.floor(parseFloat(caja.dataset.inicio)) : '';
         var f = document.createElement('iframe');
         f.src = 'https://www.youtube-nocookie.com/embed/' + id +
                 '?autoplay=1&mute=1&loop=1&playlist=' + id +
-                '&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1';
+                '&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1' + inicio;
         f.title = titulo;
         f.allow = 'autoplay; encrypted-media';
         f.setAttribute('frameborder', '0');
         caja.appendChild(f);
     }
 
-    // Cada video se monta hasta que esta por entrar en pantalla. Antes se creaban
-    // los nueve de golpe al ingresar, y en movil eso trababa el desplazamiento.
-    function alAcercarse(caja, monta) {
-        if (!caja) return;
-        if (!('IntersectionObserver' in window)) { monta(); return; }
-        var io = new IntersectionObserver(function(entradas){
-            entradas.forEach(function(e){
-                if (!e.isIntersecting) return;
-                io.disconnect();
-                monta();
-            });
-        }, { rootMargin: '300px 0px' });
-        io.observe(caja);
+    function desmontaVideo(caja) {
+        if (!caja || !caja.dataset.cargado) return;
+        var f = caja.querySelector('iframe');
+        if (f) f.parentNode.removeChild(f);
+        delete caja.dataset.cargado;
     }
 
+    // ══ Gestion de los videos ══
+    // Solo se mantienen activos los reproductores cercanos a la pantalla. Tener los
+    // nueve a la vez no funciona: el movil limita cuantos videos reproduce en
+    // paralelo y deja el resto pausado mostrando la pantalla final de YouTube, que
+    // fue justo lo que se vio en la Expo y en Social Media.
+    // Se decide con la posicion en pantalla y un scroll con rAF, no con
+    // IntersectionObserver: ese observador deja de responder cuando el navegador
+    // congela el renderizado y entonces el video no cargaba nunca.
     function cargaVideosYoutube() {
-        // La portada si carga de inmediato: es lo primero que ve el cliente.
+        // La portada primero: es lo que el cliente tiene enfrente al entrar.
         montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
-        document.querySelectorAll('.is-short[data-video]').forEach(function(c){
-            var t = c.parentElement.querySelector('h4') || c.parentElement.querySelector('h3');
-            var titulo = t ? t.textContent.trim() : 'Primavera Events Group';
-            alAcercarse(c, function(){ montaVideo(c, titulo); });
+
+        var cajas = [].slice.call(document.querySelectorAll('.is-short[data-video]'));
+        cajas.forEach(function(c){
+            // Miniatura de fondo: si el reproductor aun no carga, o se retiro por
+            // estar lejos, se ve la imagen del video y nunca un recuadro negro.
+            c.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + c.dataset.video + '/hqdefault.jpg)';
+            c.style.backgroundSize = 'cover';
+            c.style.backgroundPosition = 'center';
         });
+
+        function cerca(c, margen){
+            var r = c.getBoundingClientRect();
+            return r.top < window.innerHeight + margen && r.bottom > -margen;
+        }
+        function distanciaAlCentro(c){
+            var r = c.getBoundingClientRect();
+            return Math.abs((r.top + r.bottom) / 2 - window.innerHeight / 2);
+        }
+        function titulo(c){
+            var t = c.parentElement.querySelector('h4') || c.parentElement.querySelector('h3');
+            return t ? t.textContent.trim() : 'Primavera Events Group';
+        }
+
+        function sincroniza(){
+            // En movil el navegador solo reproduce un video a la vez: si se montan
+            // varios, el resto queda pausado mostrando la pantalla final de YouTube.
+            // Por eso en pantallas chicas se deja activo unicamente el mas centrado
+            // y los demas se ven con su miniatura.
+            if (window.innerWidth <= 768) {
+                var elegido = null, mejor = Infinity;
+                cajas.forEach(function(c){
+                    if (!cerca(c, 200)) return;
+                    var d = distanciaAlCentro(c);
+                    if (d < mejor) { mejor = d; elegido = c; }
+                });
+                cajas.forEach(function(c){
+                    if (c === elegido) montaVideo(c, titulo(c));
+                    else desmontaVideo(c);
+                });
+                return;
+            }
+            cajas.forEach(function(c){
+                if (cerca(c, 500)) montaVideo(c, titulo(c));
+                // Margen de salida mas amplio que el de entrada, para que un video
+                // no se monte y desmonte al oscilar sobre el limite.
+                else if (!cerca(c, 1500)) desmontaVideo(c);
+            });
+        }
+
+        var pendiente = false;
+        function alDesplazar(){
+            if (pendiente) return;
+            pendiente = true;
+            requestAnimationFrame(function(){ sincroniza(); pendiente = false; });
+        }
+        sincroniza();
+        window.addEventListener('scroll', alDesplazar, { passive:true });
+        window.addEventListener('resize', alDesplazar, { passive:true });
     }
 
     btnEnter.addEventListener('click', () => {
@@ -2153,8 +2211,10 @@
         [document.getElementById(prevId), document.getElementById(nextId)].forEach(function(b){
             b.addEventListener('click', pausaTemporal);
         });
+        var observadorRespondio = false;
         if ('IntersectionObserver' in window) {
             new IntersectionObserver(function(entries){
+                observadorRespondio = true;
                 entries.forEach(function(e){
                     visible = e.isIntersecting;
                     if (visible) arranca(); else detiene();
@@ -2162,6 +2222,20 @@
             // Umbral bajo para que tambien arranque en pantallas pequenas, donde el
             // carrusel puede ocupar mas alto que la propia ventana.
             }, { threshold: 0.05 }).observe(track);
+
+            // Respaldo: si el observador no responde (el navegador congela el
+            // renderizado en pestanas de fondo), el carrusel se comprueba a mano
+            // para no quedarse quieto para siempre.
+            setTimeout(function(){
+                if (observadorRespondio) return;
+                function revisar(){
+                    var r = track.getBoundingClientRect();
+                    visible = r.top < innerHeight && r.bottom > 0;
+                    if (visible) arranca(); else detiene();
+                }
+                revisar();
+                window.addEventListener('scroll', revisar, { passive:true });
+            }, 2500);
         } else { visible = true; arranca(); }
     }
     initCarrusel('slidesTrackCeremonia', 'slidesDotsCeremonia', 'slidePrevCeremonia', 'slideNextCeremonia');
