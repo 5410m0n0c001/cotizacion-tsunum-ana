@@ -732,21 +732,21 @@
 
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>4 · BANQUETE</strong></td></tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="banquete_entradas.webp" alt="Entrada a elegir" loading="lazy"><strong>Entrada</strong></td>
+                            <td><img class="tbl-thumb" src="entrada_1.jpg" alt="Entrada a elegir" loading="lazy"><img class="tbl-thumb" src="entrada_3.jpg" alt="Entrada a elegir" loading="lazy"><strong>Entrada</strong></td>
                             <td>Ensaladas y cremas a elegir.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="banquete_plato_fuerte.webp" alt="Plato fuerte" loading="lazy"><strong>Plato Fuerte</strong></td>
+                            <td><img class="tbl-thumb" src="plato_fuerte_1.jpg" alt="Plato fuerte" loading="lazy"><img class="tbl-thumb" src="plato_fuerte_3.jpg" alt="Plato fuerte" loading="lazy"><strong>Plato Fuerte</strong></td>
                             <td>Base pollo o base cerdo, con dos guarniciones a elección, acompañado con pan y chile a libre demanda.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="postre_degustacion.jpg" alt="Postre a elegir" loading="lazy"><strong>Postre</strong></td>
+                            <td><img class="tbl-thumb" src="postre_1.jpg" alt="Postre a elegir" loading="lazy"><img class="tbl-thumb" src="postre_3.jpg" alt="Postre a elegir" loading="lazy"><strong>Postre</strong></td>
                             <td>Postre individual a elegir. Incluye servicio de <strong>café de cortesía</strong> para acompañarlo.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
@@ -1127,10 +1127,69 @@
 
             <!-- ═══ BLOQUE 5: BANQUETE ═══ -->
             <div class="gallery-block-title reveal reveal-left">5 · Banquete</div>
+
+            <!-- Carrusel de entradas -->
+            <div class="servicio-detalle reveal reveal-left" style="margin-bottom:14px;">
+                <h4><i class="fas fa-bowl-food"></i> Entrada · Ensaladas y Cremas a Elegir</h4>
+                <p>Estas son entradas reales servidas en nuestros eventos. Desliza para ver las opciones entre las que puedes elegir.</p>
+            </div>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrevEntradas" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrackEntradas">
+                        <div class="slide"><img src="entrada_1.jpg" alt="Crema servida como entrada" loading="lazy"></div>
+                        <div class="slide"><img src="entrada_2.jpg" alt="Entrada del banquete" loading="lazy"></div>
+                        <div class="slide"><img src="entrada_3.jpg" alt="Sopa de tortilla como entrada" loading="lazy"></div>
+                        <div class="slide"><img src="entrada_4.jpg" alt="Entrada del banquete" loading="lazy"></div>
+                        <div class="slide"><img src="entrada_5.jpg" alt="Entrada del banquete" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNextEntradas" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDotsEntradas"></div>
+            </div>
+
+            <!-- Carrusel de platos fuertes -->
+            <div class="servicio-detalle reveal reveal-left" style="margin-bottom:14px;">
+                <h4><i class="fas fa-drumstick-bite"></i> Plato Fuerte · Base Pollo o Base Cerdo</h4>
+                <p>Con dos guarniciones a elección, acompañado de pan y chile a libre demanda. Desliza para ver ejemplos reales de emplatado.</p>
+            </div>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrevFuertes" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrackFuertes">
+                        <div class="slide"><img src="plato_fuerte_1.jpg" alt="Plato fuerte con guarniciones" loading="lazy"></div>
+                        <div class="slide"><img src="plato_fuerte_2.jpg" alt="Plato fuerte con guarniciones" loading="lazy"></div>
+                        <div class="slide"><img src="plato_fuerte_3.jpg" alt="Plato fuerte con papa y espagueti" loading="lazy"></div>
+                        <div class="slide"><img src="plato_fuerte_4.jpg" alt="Plato fuerte con guarniciones" loading="lazy"></div>
+                        <div class="slide"><img src="plato_fuerte_5.jpg" alt="Plato fuerte con papa gratinada y espagueti" loading="lazy"></div>
+                        <div class="slide"><img src="plato_fuerte_6.jpg" alt="Plato fuerte en salsa con guarniciones" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNextFuertes" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDotsFuertes"></div>
+            </div>
+
+            <!-- Carrusel de postres -->
+            <div class="servicio-detalle reveal reveal-left" style="margin-bottom:14px;">
+                <h4><i class="fas fa-cookie"></i> Postre · A Elegir</h4>
+                <p>Postre individual para cerrar el banquete, servido con café de cortesía. Desliza para ver las opciones.</p>
+            </div>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrevPostres" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrackPostres">
+                        <div class="slide"><img src="postre_1.jpg" alt="Tarta individual con frutos rojos" loading="lazy"></div>
+                        <div class="slide"><img src="postre_2.jpg" alt="Postre individual del banquete" loading="lazy"></div>
+                        <div class="slide"><img src="postre_3.jpg" alt="Pay de manzana individual" loading="lazy"></div>
+                        <div class="slide"><img src="postre_4.jpg" alt="Pastel de chocolate con durazno" loading="lazy"></div>
+                        <div class="slide"><img src="postre_5.jpg" alt="Hojaldre con manzana y caramelo" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNextPostres" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDotsPostres"></div>
+            </div>
+
             <div class="includes-grid">
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="banquete_entradas.webp" alt="Entrada a elegir"></div><div class="include-content"><h4><i class="fas fa-bowl-food"></i> Entrada</h4><p>Ensaladas y cremas a elegir.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="banquete_plato_fuerte.webp" alt="Plato fuerte"></div><div class="include-content"><h4><i class="fas fa-drumstick-bite"></i> Plato Fuerte</h4><p>Base pollo o base cerdo con dos guarniciones a elección, pan y chile a libre demanda.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="postre_degustacion.jpg" alt="Postre a elegir"></div><div class="include-content"><h4><i class="fas fa-cookie"></i> Postre</h4><p>Postre individual a elegir para cerrar el banquete.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mezcladores.webp" alt="Servicio de café"></div><div class="include-content"><h4><i class="fas fa-mug-hot"></i> Servicio de Café <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía</span></h4><p>Servicio de café de cortesía para acompañar el postre.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tornafiesta_esquites_chilaquiles.webp" alt="Tornafiesta: barra de sopas Maruchan y esquites"></div><div class="include-content"><h4><i class="fas fa-pepper-hot"></i> Tornafiesta</h4><p>Barra de sopas Maruchan y esquites, 50% / 50% del total de invitados.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mezcladores.webp" alt="Mezcladores ilimitados"></div><div class="include-content"><h4><i class="fas fa-glass-water"></i> Mezcladores Ilimitados</h4><p>Línea Coca-Cola, agua mineral, manzanita, toronja, hielo en cubo, sal y jugo de limón.</p></div></div></div>
@@ -1866,6 +1925,9 @@
         } else { arranca(); }
     }
     initCarrusel('slidesTrackCeremonia', 'slidesDotsCeremonia', 'slidePrevCeremonia', 'slideNextCeremonia');
+    initCarrusel('slidesTrackEntradas', 'slidesDotsEntradas', 'slidePrevEntradas', 'slideNextEntradas');
+    initCarrusel('slidesTrackFuertes', 'slidesDotsFuertes', 'slidePrevFuertes', 'slideNextFuertes');
+    initCarrusel('slidesTrackPostres', 'slidesDotsPostres', 'slidePrevPostres', 'slideNextPostres');
     initCarrusel('slidesTrack', 'slidesDots', 'slidePrev', 'slideNext');
 
     // ══ Pantalla completa del video del croquis ══
