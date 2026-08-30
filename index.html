@@ -497,7 +497,11 @@
             /* Bloques que solo tienen sentido en la version web: la galeria visual,
                las listas de servicios sueltas y el resumen de cortesias en texto
                (en el PDF esa informacion va en su propia tabla, seccion 2). */
-            .servicios-lista, .cortesias-web, .resumen-web, .section-title:not(.solo-print) { display:none !important; }
+            /* .servicio-detalle son encabezados y descripciones de los carruseles:
+               solo tienen sentido en la web ("desliza para ver las opciones").
+               En el PDF esa informacion ya va en las tablas de las secciones 1 a 3. */
+            .servicios-lista, .servicio-detalle, .cortesias-web, .resumen-web,
+            .section-title:not(.solo-print) { display:none !important; }
 
             .solo-print { display:block !important; }
             .solo-print .tbl-thumb, .solo-print .tbl-thumb-pend { display:none !important; }
@@ -545,7 +549,17 @@
             .print-seccion-larga { page-break-inside:auto !important; break-inside:auto !important; }
             .print-seccion-larga thead { display:table-header-group !important; }
             .print-seccion-larga tbody tr[style*="soft-pink"] { page-break-before:auto !important; page-break-after:avoid !important; break-after:avoid !important; }
-            .salto-pagina { page-break-before:always !important; break-before:page !important; }
+            /* Sin saltos de pagina forzados: generaban huecos enormes y una hoja final
+               en blanco. Cada seccion se mantiene entera con page-break-inside:avoid
+               y el contenido fluye seguido, aprovechando la hoja. */
+            .salto-pagina { page-break-before:auto !important; break-before:auto !important; }
+            /* Cada bloque (titulo + intro + tabla) viaja junto a la misma hoja */
+            .bloque-print { page-break-inside:avoid !important; break-inside:avoid !important; }
+            /* El titulo de cada seccion nunca se separa de su tabla */
+            .solo-print .section-title { page-break-after:avoid !important; break-after:avoid !important; }
+            /* Nada debe sobrar despues del ultimo bloque: evita la hoja en blanco final */
+            .quote-card > *:last-child, .print-footer { margin-bottom:0 !important; page-break-after:avoid !important; break-after:avoid !important; }
+            main.container, .quote-card { margin-bottom:0 !important; padding-bottom:0 !important; }
 
             /* Tablas desaturadas y espaciosas */
             .pricing-table-container { border:1px solid #E2D9D0 !important; border-radius:8px !important; margin-bottom:16px !important; overflow:visible !important; page-break-inside:auto !important; break-inside:auto !important; }
@@ -927,7 +941,7 @@
             <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Referencia de precio regular:</strong> el precio de lista del paquete Vuelo Esmeralda para 150 invitados es de $2,099.00 MXN por persona ($314,850.00 MXN totales). El precio especial de $285,000.00 MXN aplica únicamente si el apartado se formaliza dentro de septiembre 2026.</p>
 
             <!-- ══ 2 · CORTESÍAS SIN COSTO (VERSIÓN PDF) ══ -->
-            <div class="solo-print salto-pagina">
+            <div class="solo-print bloque-print">
             <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 · Cortesías Incluidas Sin Costo</h3>
             <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión total — no se cobra aparte.</p>
             <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
@@ -994,11 +1008,6 @@
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Crudités</strong></td>
-                            <td>Tabla de crudités con verduras frescas y dips para el cóctel de bienvenida.</td>
-                            <td class="align-right">Cortesía</td>
-                        </tr>
-                        <tr>
                             <td><strong>Servicio de Café</strong></td>
                             <td>Estación de café con termos, azúcar, endulzantes y galletas para acompañar el postre.</td>
                             <td class="align-right">Cortesía</td>
@@ -1035,7 +1044,7 @@
             </div>
 
             <!-- ══ 3 · COMPLEMENTOS ADICIONALES DE PAGO (VERSIÓN PDF) ══ -->
-            <div class="solo-print salto-pagina">
+            <div class="solo-print bloque-print">
             <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-calculator"></i> 3 · Complementos Adicionales (Costo Extra Opcional)</h3>
             <p class="calc-hint solo-print" style="margin-bottom:10px;">Estos servicios <strong>no están incluidos</strong> en la inversión total y solo se cobran si decides agregarlos:</p>
             <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:20px;">
@@ -1134,7 +1143,6 @@
                     <li><strong>Hospedaje sin costo para los anfitriones</strong> — el paquete oficial lo ofrece como opcional y con costo adicional en el hotel asociado.</li>
                     <li><strong>2 chisperos adicionales</strong> — el paquete incluye 2; aquí se duplican a 4 en total.</li>
                     <li><strong>Saxofonista en vivo</strong> para amenizar la comida.</li>
-                    <li><strong>Crudités</strong> — tabla de verduras frescas con dips para el cóctel de bienvenida.</li>
                     <li><strong>Servicio de café</strong> para acompañar el postre.</li>
                     <li><strong>Invitación digital premium</strong> personalizada.</li>
                     <li><strong>Social Media Content</strong> — reels verticales del evento, dinámica del mazo de retos con fotos de recuerdo y buenos deseos de los invitados en video.</li>
@@ -1389,7 +1397,6 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span class="badge-extra">Cortesía adicional</span></h4><p>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece como opcional y <strong>con costo adicional</strong>.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Chisperos adicionales"></div><div class="include-content"><h4><i class="fas fa-fire"></i> 2 Chisperos Adicionales <span class="badge-extra">Cortesía adicional</span></h4><p>El paquete incluye 2 chisperos; aquí se duplican a <strong>4 en total</strong> sin costo.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="saxofonista_boda.jpg" alt="Saxofonista"></div><div class="include-content"><h4><i class="fas fa-music"></i> Saxofonista en Vivo <span class="badge-extra">Cortesía adicional</span></h4><p>Saxofonista para amenizar la comida.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="crudites.webp" alt="Crudités"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-carrot"></i> Crudités y Barra de Snacks <span class="badge-extra">Cortesía adicional</span></h4><p>Tabla de crudités con verduras frescas y dips, más la barra de snacks con 12 toppings dulces y salados para el cóctel de bienvenida.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="servicio_cafe.jpg" alt="Servicio de café"></div><div class="include-content"><h4><i class="fas fa-mug-hot"></i> Servicio de Café <span class="badge-extra">Cortesía adicional</span></h4><p>Estación de café con termos, azúcar, endulzantes y galletas para acompañar el postre.</p></div></div></div>
             </div>
 
