@@ -118,6 +118,8 @@
         /* El desglose en tabla dice lo mismo que la galeria visual. En pantalla manda
            la galeria; la tabla aparece solo en la version impresa / PDF. */
         .solo-print { display:none !important; }
+        /* Simbolo de marca registrada junto al nombre/logotipo de la marca */
+        .marca-reg { font-size:.55em; vertical-align:super; line-height:0; margin-left:1px; font-weight:600; }
         .include-img-container.is-figura { height:340px; background:var(--white); }
         .include-img.figura { object-fit:contain; padding:8px; }
         .include-content { padding:18px; }
@@ -358,6 +360,15 @@
         /* Video vertical (Short) incrustado dentro de una tarjeta de servicio */
         .include-img-container.is-short { height:300px; background:#000; display:flex; align-items:center; justify-content:center; }
         .include-img-container.is-short iframe { height:100%; width:calc(300px * 9 / 16); border:0; display:block; }
+        /* Dos videos verticales, uno al lado del otro, en la tarjeta de la Expo */
+        .expo-img-box.expo-videos { background:#000; display:flex; align-items:center; justify-content:center;
+            gap:10px; padding:16px 12px; min-height:340px; flex-wrap:nowrap; }
+        .expo-video.is-short { flex:0 0 auto; }
+        .expo-video.is-short iframe { height:300px; width:169px; border:0; display:block; border-radius:10px; }
+        @media (max-width:768px) {
+            .expo-img-box.expo-videos { padding:14px 8px !important; gap:8px !important; min-height:0 !important; }
+            .expo-video.is-short iframe { height:230px !important; width:129px !important; }
+        }
 
         /* Lista de servicios descritos solo con texto (las fotos van en el carrusel de arriba) */
         .servicios-lista { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-bottom:45px; }
@@ -434,7 +445,11 @@
             .kit-section, .cta-container, audio, .audio-toggle,
             .slides-section, .video-section, .visor, .lectura-barra, .expo-section, .publicidad-section, .signature-section, .complementos-section,
             .includes-grid, .gallery-block-title, .calc-total-box, .calc-hint,
-            .venue-info-grid, .venue-logo-wrap, footer, header, .calc-section { display:none !important; }
+            .venue-info-grid, .venue-logo-wrap, footer, header, .calc-section,
+            /* Bloques que solo tienen sentido en la version web: la galeria visual,
+               las listas de servicios sueltas y el resumen de cortesias en texto
+               (en el PDF esa informacion va en su propia tabla, seccion 2). */
+            .servicios-lista, .cortesias-web, .resumen-web, .section-title:not(.solo-print) { display:none !important; }
 
             .solo-print { display:block !important; }
             .solo-print .tbl-thumb, .solo-print .tbl-thumb-pend { display:none !important; }
@@ -474,6 +489,16 @@
                 color:var(--primary-pink); border-bottom:1px solid var(--gold-accent) !important; font-family:'Playfair Display', serif; page-break-after:avoid !important; break-after:avoid !important; }
             .section-title i { color:var(--gold-accent) !important; font-size:9.5pt !important; margin-right:4px; }
             
+            /* ══ Distribucion por hojas: cada seccion completa en una sola pagina ══
+               El titulo nunca se separa de su tabla, y las tablas cortas no se parten.
+               Solo la tabla del desglose (la mas larga) puede continuar en la hoja
+               siguiente, pero siempre repitiendo su encabezado. */
+            .print-seccion { page-break-inside:avoid !important; break-inside:avoid !important; }
+            .print-seccion-larga { page-break-inside:auto !important; break-inside:auto !important; }
+            .print-seccion-larga thead { display:table-header-group !important; }
+            .print-seccion-larga tbody tr[style*="soft-pink"] { page-break-before:auto !important; page-break-after:avoid !important; break-after:avoid !important; }
+            .salto-pagina { page-break-before:always !important; break-before:page !important; }
+
             /* Tablas desaturadas y espaciosas */
             .pricing-table-container { border:1px solid #E2D9D0 !important; border-radius:8px !important; margin-bottom:16px !important; overflow:visible !important; page-break-inside:auto !important; break-inside:auto !important; }
             .pricing-table { font-size:8pt !important; line-height:1.35 !important; width:100% !important; border-collapse:collapse !important; }
@@ -535,6 +560,7 @@
             <h2 class="preloader-title">Bienvenidos</h2>
             <p class="preloader-text">Estimada <strong>Ana</strong>,<br>le presentamos la propuesta personalizada para los XV Años en Jardín Tsú Nuum.</p>
             <button id="btnEnter" class="btn-enter">Ingresar a la Propuesta</button>
+            <p style="margin-top:16px; font-size:.68rem; color:var(--gray-text); letter-spacing:.3px;">Primavera Events Group<sup class="marca-reg">&reg;</sup> · Marca Registrada</p>
         </div>
     </div>
 
@@ -560,7 +586,7 @@
                 <div class="print-header-left">
                     <img src="logo_primavera_events_group.png" alt="Primavera Events Group" class="ph-logo">
                     <div class="ph-txt">
-                        <h2>Primavera Events Group</h2>
+                        <h2>Primavera Events Group<sup class="marca-reg">&reg;</sup></h2>
                         <p>Paquete Vuelo Esmeralda Personalizado para Ana &middot; Jardín Tsú Nuum &middot; Xochitepec, Morelos</p>
                         <p class="ph-meta"><strong>Ana</strong> &middot; XV Años &middot; 27 de noviembre de 2027 &middot; 150 invitados &middot; 10 horas de presencia (1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio)</p>
                     </div>
@@ -599,10 +625,10 @@
             </div>
 
             <!-- ══ DESGLOSE COMPLETO DEL PAQUETE VUELO ESMERALDA (PERSONALIZADO) ══ -->
-            <h3 class="section-title solo-print"><i class="fas fa-list-check"></i> Desglose Completo del Paquete</h3>
+            <h3 class="section-title solo-print"><i class="fas fa-list-check"></i> 1 · Todo lo que Incluye tu Paquete</h3>
             <p class="calc-hint solo-print">Todo lo que se detalla a continuación está <strong>incluido</strong> dentro de la inversión total. No hay conceptos ocultos ni cargos adicionales sobre esta lista.</p>
             <div class="pricing-table-container solo-print">
-                <table class="pricing-table">
+                <table class="pricing-table print-seccion-larga">
                     <thead>
                         <tr>
                             <th class="col-concept">Concepto</th>
@@ -845,47 +871,96 @@
             </div>
             <p class="calc-hint solo-print" style="margin-top:8px;"><strong>Referencia de precio regular:</strong> el precio de lista del paquete Vuelo Esmeralda para 150 invitados es de $2,099.00 MXN por persona ($314,850.00 MXN totales). El precio especial de $285,000.00 MXN aplica únicamente si el apartado se formaliza dentro de septiembre 2026.</p>
 
-            <!-- ══ COMPLEMENTOS ADICIONALES (FOTOGRAFÍA, VIDEO Y PASTEL DE XV AÑOS) EN VERSIÓN PDF ══ -->
-            <h3 class="section-title solo-print" style="margin-top:24px;"><i class="fas fa-plus-circle"></i> Complementos Adicionales: Fotografía, Video y Pastel de XV Años</h3>
-            <p class="calc-hint solo-print" style="margin-bottom:12px;">Los paquetes de <strong>Fotografía &amp; Video Profesional</strong> y el <strong>Pastel de XV Años sobre Diseño</strong> no están incluidos en el paquete base — se contratan aparte, con precio oficial ya definido para los primeros:</p>
-            <div class="pricing-table-container solo-print" style="margin-bottom:24px;">
+            <!-- ══ 2 · CORTESÍAS SIN COSTO (VERSIÓN PDF) ══ -->
+            <div class="solo-print salto-pagina">
+            <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 · Cortesías Incluidas Sin Costo</h3>
+            <p class="calc-hint solo-print" style="margin-bottom:10px;">Nada de lo siguiente forma parte del paquete Vuelo Esmeralda estándar. Se agrega <strong>gratis</strong> en esta propuesta personalizada y ya está considerado dentro de la inversión total — no se cobra aparte.</p>
+            <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
                 <table class="pricing-table">
                     <thead>
                         <tr>
-                            <th>Servicio Complementario</th>
-                            <th>Detalles y Modalidad de Contratación</th>
-                            <th class="align-right">Precio</th>
+                            <th>Cortesía Especial</th>
+                            <th>Detalle</th>
+                            <th class="align-right">Costo</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Paquete Memoria Clásica</strong> (Fotografía)</td>
-                            <td>Foto digital ilimitada el día del evento, 7 horas de servicio continuo, álbum personalizado, 100 fotos impresas tamaño postal, ampliación 16×24" y USB en caja de madera.</td>
-                            <td class="align-right">$9,350.00 MXN</td>
+                            <td><strong>Kit Religioso Completo</strong></td>
+                            <td>Atril, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas. El paquete oficial no contempla ningún servicio de ceremonia.</td>
+                            <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Paquete Experiencia Deluxe</strong> (Fotografía y Video)</td>
-                            <td>Foto digital ilimitada, álbum con 200 fotos impresas, ampliación 16×24" con marco, sesión pre-evento con videoclip, estación "Foto Firma" y USB en caja de madera.</td>
-                            <td class="align-right">$10,900.00 MXN</td>
+                            <td><strong>Sonorización de la Ceremonia</strong></td>
+                            <td>Micrófono inalámbrico y audio profesional durante toda la ceremonia religiosa.</td>
+                            <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Paquete Cinematic Prestige</strong> (Fotografía y Video)</td>
-                            <td>Foto digital ilimitada, fotolibro con 50 fotos, ampliación 16×24" con marco, "Foto Firma", video cinematográfico a 2 cámaras + dron 4K, USB premium en caja de madera.</td>
-                            <td class="align-right">$13,900.00 MXN</td>
+                            <td><strong>Oficiante y Coro</strong></td>
+                            <td>Padre / oficiante religioso y coro en vivo acompañando la ceremonia.</td>
+                            <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Pastel de XV Años sobre Diseño</strong></td>
-                            <td>Elaborado a medida por chef pastelero de autor (diseño personalizado, pisos y kilos a elección según invitados). Precio de referencia desde $9,000 MXN.</td>
-                            <td class="align-right"><em>Se cotiza por separado sobre diseño</em></td>
+                            <td><strong>Hospedaje</strong></td>
+                            <td>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece como opcional y con costo adicional.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cóctel de Bienvenida Con y Sin Alcohol</strong></td>
+                            <td>Margaritas, piñadas, azulitos y mojitos, en versión con y sin alcohol.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Barra de Snacks (12 Toppings)</strong></td>
+                            <td>Snacks dulces y salados: chicharrones, palomitas y más.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saxofonista en Vivo</strong></td>
+                            <td>Música de saxofón en vivo para amenizar la comida.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detonación de 4 Chisperos</strong></td>
+                            <td>Set de 4 chisperos inalámbricos de pirotecnia en frío.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mesas Especiales</strong></td>
+                            <td>Mesa especial para pastel y mesa especial para regalos, montadas y decoradas.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Invitación Digital Premium</strong></td>
+                            <td>Invitación digital premium personalizada, con RSVP, mapa y galería interactiva.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social Media Content</strong></td>
+                            <td>Contenido ligero y vertical para redes sociales: reels del evento, dinámica del mazo de retos con fotos de recuerdo y buenos deseos de los invitados grabados en video. Complementa (no sustituye) la fotografía y video profesional.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Degustación para 4 Personas</strong></td>
+                            <td>Se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kit Organizador de Eventos</strong></td>
+                            <td>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF).</td>
+                            <td class="align-right">Cortesía</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- ══ CATÁLOGO Y COTIZADOR DINÁMICO DE EXTRAS (VERSIÓN PDF) ══ -->
-            <h3 class="section-title solo-print" style="margin-top:20px;"><i class="fas fa-calculator"></i> Catálogo de Servicios Adicionales &amp; Extras Opcionales</h3>
-            <p class="calc-hint solo-print" style="margin-bottom:10px;">A continuación se detallan las opciones de servicios adicionales que pueden sumarse al paquete base contratado:</p>
-            <div class="pricing-table-container solo-print" style="margin-bottom:20px;">
+            </div>
+
+            <!-- ══ 3 · COMPLEMENTOS ADICIONALES DE PAGO (VERSIÓN PDF) ══ -->
+            <div class="solo-print salto-pagina">
+            <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-calculator"></i> 3 · Complementos Adicionales (Costo Extra Opcional)</h3>
+            <p class="calc-hint solo-print" style="margin-bottom:10px;">Estos servicios <strong>no están incluidos</strong> en la inversión total y solo se cobran si decides agregarlos:</p>
+            <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:20px;">
                 <table class="pricing-table">
                     <thead>
                         <tr>
@@ -940,9 +1015,10 @@
                     </tbody>
                 </table>
             </div>
+            </div>
 
             <!-- ══ INVERSIÓN TOTAL BASE ══ -->
-            <div class="pricing-section reveal" id="inversionBase">
+            <div class="pricing-section print-seccion reveal" id="inversionBase">
                 <h3>Precio Regular de Lista</h3>
                 <div class="price-regular-strike" style="font-size:2.2rem; font-weight:700; text-decoration:line-through; color:rgba(255,255,255,.4); font-family:var(--font-serif); margin:4px 0 2px;">$314,850.00 MXN</div>
                 <div class="price-label" style="margin-bottom:22px;">$2,099.00 MXN/persona · 150 invitados</div>
@@ -960,7 +1036,7 @@
             </div>
 
             <!-- ══ CORTESÍAS SIN COSTO: comparativo paquete oficial vs. esta propuesta personalizada ══ -->
-            <div class="notes-section reveal" style="border-color:var(--gold-accent); margin-top:30px;">
+            <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
                 <h3><i class="fas fa-gift"></i> Todo lo que te Llevas de Cortesía, Sin Costo Adicional</h3>
                 <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:6px;">El paquete oficial Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank">ficha oficial</a>) por sí solo <strong>no incluye</strong> nada de lo siguiente. Se agrega gratis, como cortesía especial, únicamente en esta propuesta personalizada para Ana — ya está sumado dentro de los $285,000 MXN de arriba, no se cobra aparte:</p>
                 <ul>
@@ -1235,8 +1311,8 @@
                 <div id="calcGrid"></div>
             </div>
 
-            <!-- ══ RESUMEN FINAL COMPARATIVO ══ -->
-            <div class="pricing-section reveal" style="margin-top:40px;">
+            <!-- ══ RESUMEN FINAL COMPARATIVO (solo web: en el PDF el total ya va tras los complementos) ══ -->
+            <div class="pricing-section resumen-web reveal" style="margin-top:40px;">
                 <h3><i class="fas fa-scale-balanced"></i> Resumen Final: Lo que Recibes vs. Lo que Pagas</h3>
                 <div class="price-breakdown" style="display:block; text-align:left; max-width:520px; margin:18px auto 0;">
                     <div class="price-breakdown-row"><span>Precio regular de lista (150 invitados)</span><span>$314,850.00 MXN</span></div>
@@ -1279,8 +1355,9 @@
                             Ver cómo son nuestras expos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    <div class="expo-img-box">
-                        <img src="imobiliario elegante.webp" alt="Expo Boda y 15 Años, edición pasada">
+                    <div class="expo-img-box expo-videos">
+                        <div class="expo-video is-short" data-video="P9MxVEjGA98"></div>
+                        <div class="expo-video is-short" data-video="xdPO6q93pMM"></div>
                     </div>
                 </div>
             </div>
@@ -1314,7 +1391,7 @@
                 </video>
             </div>
 
-            <div class="notes-section reveal">
+            <div class="notes-section print-seccion reveal">
                 <h3><i class="fas fa-file-contract"></i> Condiciones de Contratación y Notas Importantes</h3>
                 <ul>
                     <li><strong>Precio especial vigente en septiembre 2026:</strong> los $285,000 MXN aplican únicamente si el apartado se formaliza dentro de septiembre 2026. El precio regular de lista para 150 invitados es de $2,099.00 MXN/persona ($314,850.00 MXN totales).</li>
@@ -1376,8 +1453,9 @@
 
             <div class="print-footer solo-print" style="display:flex; align-items:center; justify-content:space-between;">
                 <div>
-                    <strong>Primavera Events Group</strong> &middot; Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Mor.<br>
-                    Tel / WhatsApp: +52 777 458 7923 &middot; primaveraeventsgroup.com
+                    <strong>Primavera Events Group<sup class="marca-reg">&reg;</sup></strong> &middot; Av. Defensa Nacional #8, Col. Chamilpa, 62210 Cuernavaca, Mor.<br>
+                    Tel / WhatsApp: +52 777 458 7923 &middot; primaveraeventsgroup.com<br>
+                    <span style="font-size:6.5pt; color:var(--gray-text);">Primavera Events Group<sup class="marca-reg">&reg;</sup> es una marca registrada. Su logotipo, nombre comercial e imagen institucional están protegidos.</span>
                 </div>
                 <div class="qr-print-box" style="margin-left:auto;">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://5410m0n0c001.github.io/cotizacion-tsunum-ana/" alt="Código QR Versión Web" class="qr-img" style="width:42px; height:42px;">
@@ -1390,9 +1468,10 @@
     <footer>
         <div class="footer-container">
             <img class="footer-logo" src="logo_primavera_events_group.png" alt="Primavera Events Group">
-            <h3>Primavera Events Group</h3>
+            <h3>Primavera Events Group<sup class="marca-reg">&reg;</sup></h3>
             <p>El Arte de Servir • Cuernavaca, Morelos, México</p>
-            <div class="footer-bottom">&copy; 2026 Primavera Events Group. Todos los derechos reservados.</div>
+            <div class="footer-bottom">&copy; 2026 Primavera Events Group<sup class="marca-reg">&reg;</sup>. Todos los derechos reservados.<br>
+                Primavera Events Group<sup class="marca-reg">&reg;</sup> es una marca registrada. Su logotipo, nombre comercial e imagen institucional están protegidos.</div>
         </div>
     </footer>
 
@@ -1579,7 +1658,7 @@
     function cargaVideosYoutube() {
         montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
         document.querySelectorAll('.is-short[data-video]').forEach(function(c){
-            var t = c.parentElement.querySelector('h4');
+            var t = c.parentElement.querySelector('h4') || c.parentElement.querySelector('h3');
             montaVideo(c, t ? t.textContent.trim() : 'Primavera Events Group');
         });
     }
@@ -1589,6 +1668,9 @@
         window.scrollTo(0, 0);
         preloader.classList.add('fade-out');
         cargaVideosYoutube();
+        // Musicalizacion de la propuesta: arranca al ingresar. Si el navegador
+        // bloquea la reproduccion automatica, el cliente la activa con el boton.
+        bgAudio.play().then(function(){ audioPlaying = true; updateAudioIcon(); }).catch(function(){});
     });
     audioToggle.addEventListener('click', () => {
         if (audioPlaying) { bgAudio.pause(); audioPlaying = false; }
