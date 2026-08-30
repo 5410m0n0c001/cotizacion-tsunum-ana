@@ -118,6 +118,14 @@
         /* El desglose en tabla dice lo mismo que la galeria visual. En pantalla manda
            la galeria; la tabla aparece solo en la version impresa / PDF. */
         .solo-print { display:none !important; }
+        /* Distincion honesta entre los dos tipos de cortesia:
+           - badge-incluido: cortesias que el paquete Vuelo Esmeralda YA publica.
+           - badge-extra:    cortesias que NO trae el paquete y se agregan aqui. */
+        .badge-incluido, .badge-extra { font-size:.62rem; padding:2px 9px; border-radius:10px;
+            font-weight:700; text-transform:uppercase; letter-spacing:.4px; margin-left:4px; white-space:nowrap; }
+        .badge-incluido { background:var(--beige); color:var(--gray-text); border:1px solid #DCD2C8; }
+        .badge-extra { background:var(--primary-pink); color:var(--white); }
+
         /* Simbolo de marca registrada junto al nombre/logotipo de la marca */
         .marca-reg { font-size:.55em; vertical-align:super; line-height:0; margin-left:1px; font-weight:600; }
         .include-img-container.is-figura { height:340px; background:var(--white); }
@@ -836,24 +844,31 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="pirotecnia_fria_chisperos.webp" alt="Chisperos" loading="lazy"><strong>Detonación de Chisperos</strong></td>
-                            <td>Set de 4 chisperos inalámbricos de pirotecnia en frío. <em>No forma parte del paquete Vuelo Esmeralda estándar — cortesía especial de esta propuesta.</em></td>
+                            <td>Set de 4 chisperos inalámbricos de pirotecnia en frío. <em>El paquete incluye 2; en esta propuesta se duplican a 4.</em></td>
                             <td class="align-center">4</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
 
-                        <tr style="background:var(--soft-pink);"><td colspan="5"><strong>9 · CORTESÍAS ADICIONALES</strong></td></tr>
-                        <tr><td colspan="5" style="font-size:.85em; font-style:italic; color:var(--gray-text); background:#FFF8F5;">Ninguna de las cortesías de este bloque forma parte del paquete Vuelo Esmeralda estándar — se otorgan de manera especial en esta propuesta personalizada para Ana.</td></tr>
+                        <tr style="background:var(--soft-pink);"><td colspan="5"><strong>9 · CORTESÍAS DECORATIVAS DEL PAQUETE VUELO ESMERALDA</strong></td></tr>
+                        <tr><td colspan="5" style="font-size:.85em; font-style:italic; color:var(--gray-text); background:#FFF8F5;">Estas cortesías ya vienen publicadas en el paquete Vuelo Esmeralda estándar.</td></tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="mesa_pastel.webp" alt="Mesa especial para pastel" loading="lazy"><strong>Mesas Especiales</strong></td>
-                            <td>Mesa especial para pastel y mesa especial para regalos. <em>No incluidas en el paquete estándar.</em></td>
+                            <td><img class="tbl-thumb" src="letras_gigantes_real.jpg" alt="Letras decorativas" loading="lazy"><strong>Letras Decorativas y Corazón</strong></td>
+                            <td>Letras a elegir «XV» o «LOVE» y corazón rojo decorativo iluminado.</td>
+                            <td class="align-center">1</td>
+                            <td class="align-right">Cortesía</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><img class="tbl-thumb" src="mesa_pastel.webp" alt="Mesa especial para pastel" loading="lazy"><img class="tbl-thumb" src="mesa_regalos_real.jpeg" alt="Mesa especial para regalos" loading="lazy"><strong>Mesas Especiales</strong></td>
+                            <td>Mesa especial para pastel y mesa especial para regalos.</td>
                             <td class="align-center">2</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="invitacion_digital.webp" alt="Invitación digital premium" loading="lazy"><strong>Invitación Digital Premium</strong></td>
-                            <td>Con contenido ligero para redes sociales y reel vertical. <em>No incluida en el paquete estándar.</em></td>
+                            <td><img class="tbl-thumb" src="alfombra_roja.webp" alt="Alfombra roja" loading="lazy"><strong>Alfombra Roja</strong></td>
+                            <td>Alfombra roja para una entrada espectacular en la recepción.</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Cortesía</td>
                             <td class="align-right">Cortesía</td>
@@ -874,17 +889,40 @@
             <!-- ══ 2 · CORTESÍAS SIN COSTO (VERSIÓN PDF) ══ -->
             <div class="solo-print salto-pagina">
             <h3 class="section-title solo-print" style="margin-top:0;"><i class="fas fa-gift"></i> 2 · Cortesías Incluidas Sin Costo</h3>
-            <p class="calc-hint solo-print" style="margin-bottom:10px;">Nada de lo siguiente forma parte del paquete Vuelo Esmeralda estándar. Se agrega <strong>gratis</strong> en esta propuesta personalizada y ya está considerado dentro de la inversión total — no se cobra aparte.</p>
+            <p class="calc-hint solo-print" style="margin-bottom:10px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de la inversión total — no se cobra aparte.</p>
             <div class="pricing-table-container solo-print print-seccion" style="margin-bottom:24px;">
                 <table class="pricing-table">
                     <thead>
                         <tr>
-                            <th>Cortesía Especial</th>
+                            <th>Cortesía</th>
                             <th>Detalle</th>
                             <th class="align-right">Costo</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>A · CORTESÍAS QUE YA INCLUYE EL PAQUETE VUELO ESMERALDA</strong></td></tr>
+                        <tr>
+                            <td><strong>Letras Decorativas y Corazón</strong></td>
+                            <td>Letras a elegir «XV» o «LOVE» y corazón rojo decorativo iluminado.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mesas Especiales</strong></td>
+                            <td>Mesa especial para pastel y mesa especial para regalos.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detonación de 2 Chisperos</strong></td>
+                            <td>Dos chisperos de pirotecnia en frío (en esta propuesta se duplican a 4 — ver grupo B).</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alfombra Roja</strong></td>
+                            <td>Alfombra roja para una entrada espectacular en la recepción.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+
+                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>B · CORTESÍAS ADICIONALES, EXCLUSIVAS DE ESTA PROPUESTA</strong></td></tr>
                         <tr>
                             <td><strong>Kit Religioso Completo</strong></td>
                             <td>Atril, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas. El paquete oficial no contempla ningún servicio de ceremonia.</td>
@@ -906,13 +944,8 @@
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Cóctel de Bienvenida Con y Sin Alcohol</strong></td>
-                            <td>Margaritas, piñadas, azulitos y mojitos, en versión con y sin alcohol.</td>
-                            <td class="align-right">Cortesía</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Barra de Snacks (12 Toppings)</strong></td>
-                            <td>Snacks dulces y salados: chicharrones, palomitas y más.</td>
+                            <td><strong>2 Chisperos Adicionales</strong></td>
+                            <td>El paquete incluye 2 chisperos; aquí se duplican a 4 en total, sin costo.</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
@@ -921,13 +954,18 @@
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Detonación de 4 Chisperos</strong></td>
-                            <td>Set de 4 chisperos inalámbricos de pirotecnia en frío.</td>
+                            <td><strong>Crudités</strong></td>
+                            <td>Tabla de crudités con verduras frescas y dips para el cóctel de bienvenida.</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
-                            <td><strong>Mesas Especiales</strong></td>
-                            <td>Mesa especial para pastel y mesa especial para regalos, montadas y decoradas.</td>
+                            <td><strong>Servicio de Café</strong></td>
+                            <td>Servicio de café para acompañar el postre.</td>
+                            <td class="align-right">Cortesía</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Show de Cabezones, Robot LED, Cabina de Experiencia y Pista de LEDs</strong></td>
+                            <td>Entretenimiento y amenidades no contemplados en la ficha oficial del paquete.</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
@@ -1037,22 +1075,33 @@
 
             <!-- ══ CORTESÍAS SIN COSTO: comparativo paquete oficial vs. esta propuesta personalizada ══ -->
             <div class="notes-section cortesias-web reveal" style="border-color:var(--gold-accent); margin-top:30px;">
-                <h3><i class="fas fa-gift"></i> Todo lo que te Llevas de Cortesía, Sin Costo Adicional</h3>
-                <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:6px;">El paquete oficial Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank">ficha oficial</a>) por sí solo <strong>no incluye</strong> nada de lo siguiente. Se agrega gratis, como cortesía especial, únicamente en esta propuesta personalizada para Ana — ya está sumado dentro de los $285,000 MXN de arriba, no se cobra aparte:</p>
+                <h3><i class="fas fa-gift"></i> Cortesías: Lo que ya Trae el Paquete y lo que se Agrega de Más</h3>
+                <p style="color:var(--gray-text); font-size:.9rem; margin-bottom:14px;">Para total transparencia, separamos las cortesías en dos grupos: las que el paquete Vuelo Esmeralda (<a href="https://primaveraeventsgroup.com/paquete-vuelo-esmeralda/" target="_blank">ficha oficial</a>) <strong>ya publica</strong>, y las que <strong>se agregan de más</strong> exclusivamente en esta propuesta. Todo está considerado dentro de los $285,000 MXN — nada de esto se cobra aparte.</p>
+
+                <p style="font-weight:700; font-size:.88rem; margin-bottom:6px; color:var(--gray-text); text-transform:uppercase; letter-spacing:.5px;">A · Cortesías que ya incluye el paquete Vuelo Esmeralda</p>
+                <ul>
+                    <li>Letras decorativas a elegir «XV» o «LOVE».</li>
+                    <li>Corazón rojo decorativo iluminado.</li>
+                    <li>Mesa especial para pastel.</li>
+                    <li>Mesa especial para regalos.</li>
+                    <li>Detonación de <strong>2</strong> chisperos de pirotecnia en frío.</li>
+                    <li>Alfombra roja para una entrada espectacular.</li>
+                </ul>
+
+                <p style="font-weight:700; font-size:.88rem; margin:18px 0 6px; color:var(--primary-pink); text-transform:uppercase; letter-spacing:.5px;">B · Cortesías adicionales, exclusivas de esta propuesta</p>
                 <ul>
                     <li><strong>Ceremonia religiosa completa</strong> — kit ceremonial (atril, cruz, reclinatorio, banca, arreglo floral, entelado, 60 sillas Tiffany), sonorización, oficiante y coro. El paquete oficial no contempla ningún servicio de ceremonia.</li>
-                    <li><strong>Hospedaje sin costo para los anfitriones</strong> — el paquete oficial lo ofrece como opcional y con costo adicional en el hotel asociado; aquí se otorga como cortesía, incluido.</li>
-                    <li><strong>Show de cabezones</strong> (personaje tipo La Máscara, Bad Bunny, Luis Miguel, etc.) — entretenimiento no contemplado en el paquete oficial.</li>
-                    <li><strong>Robot LED</strong> — no contemplado en el paquete oficial.</li>
-                    <li><strong>Cabina de experiencia a elegir sin costo</strong> (360°, inflable o espejo) — no contemplada en el paquete oficial.</li>
-                    <li><strong>Pista de baile interactiva de LEDs 5×5 m</strong> — no contemplada en el paquete oficial.</li>
-                    <li><strong>Detonación de 4 chisperos</strong> (pirotecnia fría) de cortesía — no contemplada en el paquete oficial.</li>
-                    <li><strong>Saxofonista en vivo</strong> de cortesía — no contemplado en el paquete oficial.</li>
-                    <li><strong>Mesa especial para pastel y mesa especial para regalos</strong> de cortesía — no contempladas específicamente en el paquete oficial.</li>
-                    <li><strong>Invitación digital premium</strong> de cortesía — no contemplada en el paquete oficial.</li>
+                    <li><strong>Hospedaje sin costo para los anfitriones</strong> — el paquete oficial lo ofrece como opcional y con costo adicional en el hotel asociado.</li>
+                    <li><strong>2 chisperos adicionales</strong> — el paquete incluye 2; aquí se duplican a 4 en total.</li>
+                    <li><strong>Saxofonista en vivo</strong> para amenizar la comida.</li>
+                    <li><strong>Crudités</strong> — tabla de verduras frescas con dips para el cóctel de bienvenida.</li>
+                    <li><strong>Servicio de café</strong> para acompañar el postre.</li>
+                    <li><strong>Invitación digital premium</strong> personalizada.</li>
+                    <li><strong>Social Media Content</strong> — reels verticales del evento, dinámica del mazo de retos con fotos de recuerdo y buenos deseos de los invitados en video.</li>
+                    <li><strong>Show de cabezones</strong>, <strong>robot LED</strong>, <strong>cabina de experiencia a elegir</strong> (360°, inflable o espejo) y <strong>pista de baile de LEDs 5×5 m</strong> — entretenimiento y amenidades no contemplados en la ficha oficial del paquete.</li>
                 </ul>
-                <p class="quote-phrase">Todo esto va incluido sin costo adicional en el precio especial de septiembre — parte de por qué conviene cerrar el contrato dentro de este mes.</p>
-                <p style="color:var(--gray-text); font-size:.82rem; margin-top:14px; padding-top:14px; border-top:1px dashed var(--beige);"><i class="fas fa-circle-info" style="color:var(--primary-pink); margin-right:6px;"></i><strong>Esto es distinto de los complementos opcionales de pago</strong> (fotografía y video, upgrade de pirotecnia, cabinas adicionales, pastel de autor) que se muestran más adelante en el "Cotizador Dinámico de Extras" — esos sí tienen costo y se suman aparte solo si se seleccionan.</p>
+                <p class="quote-phrase">El grupo B va incluido sin costo adicional en el precio especial de septiembre — parte de por qué conviene cerrar el contrato dentro de este mes.</p>
+                <p style="color:var(--gray-text); font-size:.82rem; margin-top:14px; padding-top:14px; border-top:1px dashed var(--beige);"><i class="fas fa-circle-info" style="color:var(--primary-pink); margin-right:6px;"></i><strong>Ambos grupos son distintos de los complementos opcionales de pago</strong> (fotografía y video, upgrade de pirotecnia, cabinas adicionales, pastel de autor) que se muestran más adelante en el "Cotizador Dinámico de Extras" — esos sí tienen costo y se suman aparte solo si se seleccionan.</p>
             </div>
 
             <h3 class="section-title reveal reveal-left"><i class="fas fa-magic"></i> Todo lo que Incluye, Servicio por Servicio</h3>
@@ -1066,6 +1115,8 @@
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_1.webp" alt="Cascada de piedra volcánica en el jardín"></div><div class="include-content"><h4><i class="fas fa-water"></i> Cascada y Jardín</h4><p>Entornos fotogénicos con cascada de piedra volcánica y vegetación tropical, ideales para las fotos del evento.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_4.webp" alt="Arcos de piedra iluminados en el jardín"></div><div class="include-content"><h4><i class="fas fa-tree"></i> Arquitectura de Jardín</h4><p>Arcos de piedra y árboles maduros iluminados, aportando privacidad y un entorno espectacular al recinto.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Habitación de hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Hospedaje incluido como cortesía para los anfitriones. <em>El paquete oficial Vuelo Esmeralda contempla el hospedaje como opcional y con costo adicional; en esta propuesta personalizada va incluido sin costo.</em></p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_area_techada.webp" alt="Área techada montada para banquete"></div><div class="include-content"><h4><i class="fas fa-warehouse"></i> Área Techada para el Banquete</h4><p>Gran estructura techada con iluminación decorativa y pista de baile, para el montaje del banquete y la fiesta.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_area_techada_2.webp" alt="Área techada con pista de baile y cabina de DJ"></div><div class="include-content"><h4><i class="fas fa-music"></i> Pista de Baile y Área de DJ</h4><p>Vista nocturna del área techada con la pista de baile iluminada, cabina de DJ y pantalla.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tiempodeservicio.webp" alt="10 horas de presencia en el evento"></div><div class="include-content"><h4><i class="fas fa-clock"></i> 10 Horas de Presencia</h4><p>1 hora de ceremonia religiosa + 1 hora de cóctel de bienvenida + 8 horas de banquete y fiesta.</p></div></div></div>
             </div>
 
@@ -1076,6 +1127,7 @@
                 <div class="slides-wrap">
                     <button class="slide-nav prev" id="slidePrevCeremonia" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
                     <div class="slides-track" id="slidesTrackCeremonia">
+                        <div class="slide"><img src="tsunuum_area_ceremonia.webp" alt="Área de ceremonia montada en Jardín Tsú Nuum" loading="lazy"></div>
                         <div class="slide"><img src="ceremonia_oficiante.jpg" alt="Oficiante durante la ceremonia religiosa" loading="lazy"></div>
                         <div class="slide"><img src="ceremonia_atril_general.jpg" alt="Atril y montaje general de la ceremonia" loading="lazy"></div>
                         <div class="slide"><img src="ceremonia_kit_religioso.jpg" alt="Reclinatorio y altar del kit religioso" loading="lazy"></div>
@@ -1107,10 +1159,30 @@
             <div class="includes-grid">
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón</h4><p>Letras gigantes «XV» y corazón iluminado para el área de recepción y fotos.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container is-short"><div id="clipAlfombra" data-clip="xNc85w8ZOCk" data-inicio="123" data-fin="126"></div></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida</h4><p>Margaritas, piñadas, azulitos, mojitos con y sin alcohol, aguas frescas de fruta natural y agua natural.</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas y más.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón <span class="badge-incluido">Cortesía del paquete</span></h4><p>Letras decorativas a elegir «XV» o «LOVE» y corazón rojo iluminado, para el área de recepción y fotos.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short"><div id="clipAlfombra" data-clip="xNc85w8ZOCk" data-inicio="123" data-fin="126"></div></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas, jícama con chamoy y más.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="snacks_jicama_chamoy.webp" alt="Jícama con chamoy y limón"></div><div class="include-content"><h4><i class="fas fa-pepper-hot"></i> Toppings Dulces y Salados</h4><p>Jícama con chamoy, chile en polvo y limón, entre los 12 toppings de la barra.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="crudites.webp" alt="Crudités"></div><div class="include-content"><h4><i class="fas fa-carrot"></i> Crudités <span class="badge-extra">Cortesía adicional</span></h4><p>Tabla de crudités con verduras frescas y dips para acompañar el cóctel de bienvenida.</p></div></div></div>
+            </div>
+
+            <!-- Carrusel del cóctel de bienvenida -->
+            <div class="servicio-detalle reveal reveal-left" style="margin-bottom:14px;">
+                <h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida · Con y Sin Alcohol</h4>
+                <p>Margaritas, piñadas, azulitos y mojitos —en versión con y sin alcohol—, aguas frescas de fruta natural y agua natural. Desliza para ver las opciones.</p>
+            </div>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrevCoctel" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrackCoctel">
+                        <div class="slide"><img src="margaritas.webp" alt="Margaritas de sabores" loading="lazy"></div>
+                        <div class="slide"><img src="pinas_coladas.webp" alt="Piñada / piña colada" loading="lazy"></div>
+                        <div class="slide"><img src="mojitos.webp" alt="Mojitos con y sin alcohol" loading="lazy"></div>
+                        <div class="slide"><img src="aguas_frescas.webp" alt="Aguas frescas de fruta natural" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNextCoctel" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDotsCoctel"></div>
             </div>
 
             <!-- ═══ BLOQUE 4: MONTAJE Y DECORACIÓN ═══ -->
@@ -1201,6 +1273,7 @@
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="coordinacion_servicio.webp" alt="Coordinación del evento"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Coordinador de Servicio</h4><p>1 coordinador dedicado, más staff de limpieza general, hostess y personal de cocina haute cuisine.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container is-figura"><img class="include-img figura" loading="lazy" decoding="async" src="capitan.webp" alt="Capitán de meseros"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Capitán de Meseros</h4><p>Supervisión ejecutiva del servicio durante todo el evento.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="meseros.webp" alt="Meseros capacitados"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Meseros Capacitados</h4><p>Atención de mesas durante todo el servicio de banquete.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sanitarios.webp" alt="Sanitarios del recinto"></div><div class="include-content"><h4><i class="fas fa-restroom"></i> Sanitarios y Limpieza General</h4><p>Sanitarios del recinto con atención y limpieza continua a cargo del staff de limpieza general durante todo el evento.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 7: AUDIO E ILUMINACIÓN ═══ -->
@@ -1223,26 +1296,71 @@
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Detonación de chisperos"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 4 Chisperos <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Set de 4 chisperos inalámbricos de pirotecnia en frío. <em>No forma parte del paquete Vuelo Esmeralda estándar — se otorga como cortesía especial en esta propuesta personalizada.</em></p></div></div></div>
             </div>
 
-            <!-- ═══ BLOQUE 9: TODO LO QUE TE LLEVAS DE CORTESÍA (RESUMEN VISUAL) ═══ -->
-            <div class="gallery-block-title reveal reveal-left">9 · Todo lo que te Llevas de Cortesía (Resumen Visual)</div>
-            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Nada de esto forma parte del paquete Vuelo Esmeralda estándar — se agrega gratis, sin costo adicional, únicamente en esta propuesta personalizada para Ana. Algunas fotos ya las viste arriba; se repiten aquí para que tengas todo el resumen junto.</p>
+            <!-- ═══ BLOQUE 9A: CORTESÍAS QUE YA PUBLICA EL PAQUETE VUELO ESMERALDA ═══ -->
+            <div class="gallery-block-title reveal reveal-left">9 · Cortesías que ya Incluye el Paquete Vuelo Esmeralda</div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Estas cortesías <strong>ya vienen publicadas en el paquete Vuelo Esmeralda</strong> y por supuesto las recibes. Las listamos aparte para que quede claro qué es parte del paquete y qué se agrega de más en esta propuesta.</p>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Kit religioso completo"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Atril, cruz, reclinatorio, banca, arreglo floral, entelado y 60 sillas Tiffany blancas. El paquete oficial no contempla ningún servicio de ceremonia.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_sonorizacion.jpg" alt="Sonorización de la ceremonia"></div><div class="include-content"><h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Micrófono inalámbrico y audio profesional para toda la ceremonia. No contemplado en el paquete oficial.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_oficiante.jpg" alt="Oficiante y coro"></div><div class="include-content"><h4><i class="fas fa-cross"></i> Oficiante y Coro <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Padre / oficiante religioso y coro en vivo. No contemplados en el paquete oficial.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece opcional y con costo adicional.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida con y sin alcohol"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida Con y Sin Alcohol <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Margaritas, piñadas, azulitos y mojitos, con y sin alcohol. No especificado como tal en el paquete oficial.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks 12 toppings"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings) <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>No contemplada específicamente en el paquete oficial.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="saxofonista_boda.jpg" alt="Saxofonista"></div><div class="include-content"><h4><i class="fas fa-music"></i> Saxofonista en Vivo <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Para amenizar la comida. No contemplado en el paquete oficial.</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Detonación de 4 chisperos"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 4 Chisperos <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Pirotecnia en frío. No contemplada en el paquete oficial.</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel y regalos"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesas Especiales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Mesa especial para pastel y mesa especial para regalos. No incluidas en el paquete estándar.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Con contenido ligero para redes sociales y reel vertical. No incluida en el paquete estándar.</p><p style="font-size:.78rem; margin-top:8px;"><em>La invitación demo es de boda: el diseño se personaliza y adapta por completo al estilo y contexto que elija la quinceañera.</em></p><div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;"><a class="btn-complemento" href="https://5410m0n0c001.github.io/INIT-IDEA/modelos-15-anos.html" target="_blank"><i class="fas fa-images"></i> Ver ejemplos de XV</a><a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" style="background:var(--primary-dark);"><i class="fas fa-mobile-screen"></i> Ver invitación demo</a></div></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="banquete_entradas.webp"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Cortesía post-contrato: se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras decorativas XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Decorativas y Corazón <span class="badge-incluido">Cortesía del paquete</span></h4><p>Letras a elegir «XV» o «LOVE» y corazón rojo decorativo iluminado.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesa Especial para Pastel <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada y decorada para el pastel de XV años.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_regalos_real.jpeg" alt="Mesa especial para regalos"></div><div class="include-content"><h4><i class="fas fa-gift"></i> Mesa Especial para Regalos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada para recibir los obsequios de tus invitados.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Chisperos de pirotecnia en frío"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 2 Chisperos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Dos chisperos de pirotecnia en frío. <em>En esta propuesta se duplican a 4 — ver cortesías adicionales.</em></p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja <span class="badge-incluido">Cortesía del paquete</span></h4><p>Alfombra roja para una entrada espectacular en la recepción.</p></div></div></div>
+            </div>
+
+            <!-- ═══ BLOQUE 9B: CORTESÍAS ADICIONALES EXCLUSIVAS DE ESTA PROPUESTA ═══ -->
+            <div class="gallery-block-title reveal reveal-left">10 · Cortesías Adicionales, Exclusivas de esta Propuesta</div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Esto es lo que <strong>NO trae el paquete Vuelo Esmeralda</strong> y se agrega sin costo únicamente para Ana. Ya está considerado dentro de la inversión total — no se cobra aparte.</p>
+
+            <!-- Ceremonia religiosa completa: mismo carrusel de la sección 2 -->
+            <div class="servicio-detalle reveal reveal-left" style="margin-bottom:14px; border-left-color:var(--primary-pink);">
+                <h4><i class="fas fa-place-of-worship"></i> Ceremonia Religiosa Completa <span class="badge-extra">Cortesía adicional</span></h4>
+                <p>El paquete oficial <strong>no contempla ningún servicio de ceremonia</strong>. Aquí se incluye completa, sin costo, con estos tres servicios:</p>
+            </div>
+            <div class="slides-section slides-fotos reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrevCeremonia2" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrackCeremonia2">
+                        <div class="slide"><img src="tsunuum_area_ceremonia.webp" alt="Área de ceremonia montada en Jardín Tsú Nuum" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_oficiante.jpg" alt="Oficiante durante la ceremonia religiosa" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_atril_general.jpg" alt="Atril y montaje general de la ceremonia" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_kit_religioso.jpg" alt="Reclinatorio y altar del kit religioso" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_sonorizacion.jpg" alt="Sonorización con micrófono inalámbrico" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_sillas.jpg" alt="Sillas Tiffany blancas de la ceremonia" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_cruz_detalle.jpg" alt="Detalle de la cruz y el altar" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNextCeremonia2" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDotsCeremonia2"></div>
+            </div>
+            <div class="servicios-lista">
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo</h4>
+                    <p>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia</h4>
+                    <p>Micrófono inalámbrico y audio profesional para toda la ceremonia religiosa.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-cross"></i> Oficiante y Coro</h4>
+                    <p>Padre / oficiante religioso y coro en vivo acompañando la ceremonia.</p>
+                </div>
+            </div>
+
+            <div class="includes-grid">
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span class="badge-extra">Cortesía adicional</span></h4><p>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece como opcional y <strong>con costo adicional</strong>.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Chisperos adicionales"></div><div class="include-content"><h4><i class="fas fa-fire"></i> 2 Chisperos Adicionales <span class="badge-extra">Cortesía adicional</span></h4><p>El paquete incluye 2 chisperos; aquí se duplican a <strong>4 en total</strong> sin costo.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="saxofonista_boda.jpg" alt="Saxofonista"></div><div class="include-content"><h4><i class="fas fa-music"></i> Saxofonista en Vivo <span class="badge-extra">Cortesía adicional</span></h4><p>Saxofonista para amenizar la comida.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="crudites.webp" alt="Crudités"></div><div class="include-content"><h4><i class="fas fa-carrot"></i> Crudités <span class="badge-extra">Cortesía adicional</span></h4><p>Tabla de crudités con verduras frescas y dips para el cóctel de bienvenida.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mezcladores.webp" alt="Servicio de café"></div><div class="include-content"><h4><i class="fas fa-mug-hot"></i> Servicio de Café <span class="badge-extra">Cortesía adicional</span></h4><p>Servicio de café para acompañar el postre.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span class="badge-extra">Cortesía adicional</span></h4><p>Invitación digital premium personalizada, con RSVP, mapa y galería interactiva.</p><p style="font-size:.78rem; margin-top:8px;"><em>La invitación demo es de boda: el diseño se personaliza y adapta por completo al estilo y contexto que elija la quinceañera.</em></p><div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;"><a class="btn-complemento" href="https://5410m0n0c001.github.io/INIT-IDEA/modelos-15-anos.html" target="_blank"><i class="fas fa-images"></i> Ver ejemplos de XV</a><a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" style="background:var(--primary-dark);"><i class="fas fa-mobile-screen"></i> Ver invitación demo</a></div></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Social Media Content <span class="badge-extra">Cortesía adicional</span></h4><p>Contenido ligero y vertical para redes sociales: reels del evento, dinámica del mazo de retos y buenos deseos de tus invitados en video.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="entrada_1.jpg"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Cortesía post-contrato: se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short" data-video="Q4L2srgBU2E"></div><div class="include-content"><h4><i class="fas fa-clipboard-list"></i> Kit Organizador de Eventos <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF) para planear tu evento paso a paso. Descárgalo más abajo.</p></div></div></div>
             </div>
 
             <!-- ═══ SOCIAL MEDIA CONTENT — cortesía incluida ═══ -->
-            <div class="gallery-block-title reveal reveal-left">Social Media Content · Contenido Ligero para Redes Sociales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:6px; letter-spacing:.5px;">Cortesía especial</span></div>
+            <div class="gallery-block-title reveal reveal-left">11 · Social Media Content · Contenido Ligero para Redes Sociales <span class="badge-extra">Cortesía adicional</span></div>
             <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Contenido vertical, ágil y listo para publicar el mismo fin de semana — <strong>no sustituye a la fotografía y video profesional</strong> (que son formatos largos, cinematográficos y de edición fina): la <em>complementa</em>. Aquí lo que buscamos es la reacción espontánea, la risa y el mensaje sincero de tus invitados. Así se ve en eventos reales:</p>
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-short" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Ejemplo: La Ceremonia <span class="badge-video"><i class="fas fa-play"></i> Reel</span></h4><p>Reel vertical de la ceremonia religiosa, listo para publicar en redes.</p></div></div></div>
@@ -1264,7 +1382,7 @@
             </div>
 
             <!-- ═══ BLOQUE 10: COMPLEMENTOS ADICIONALES (A COTIZAR POR SEPARADO) ═══ -->
-            <div class="gallery-block-title reveal reveal-left">10 · Complementos Adicionales (Fotografía, Video &amp; Pastel de XV Años)</div>
+            <div class="gallery-block-title reveal reveal-left">12 · Complementos Adicionales de Pago (Fotografía, Video &amp; Pastel de XV Años)</div>
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="fotografia_video.webp" alt="Fotografía y Video Profesional"></div><div class="include-content"><h4><i class="fas fa-camera"></i> Fotografía &amp; Video Profesional</h4><p>3 paquetes a elegir: Memoria Clásica ($9,350), Experiencia Deluxe ($10,900) o Cinematic Prestige ($13,900 — incluye dron 4K). <em>No incluidos en el paquete base; selecciónalos en el cotizador dinámico de abajo.</em></p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoPastel" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="mesa_pastel.webp"><source src="video_pastel.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Pastel de XV Años sobre Diseño <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Elaborado a medida por chef pastelero de autor (diseño personalizado, pisos y kilos a elección). <em>Se cotiza por separado sobre diseño, desde $9,000 MXN. Mira el video de demostración.</em></p></div></div></div>
@@ -1925,6 +2043,8 @@
         } else { arranca(); }
     }
     initCarrusel('slidesTrackCeremonia', 'slidesDotsCeremonia', 'slidePrevCeremonia', 'slideNextCeremonia');
+    initCarrusel('slidesTrackCeremonia2', 'slidesDotsCeremonia2', 'slidePrevCeremonia2', 'slideNextCeremonia2');
+    initCarrusel('slidesTrackCoctel', 'slidesDotsCoctel', 'slidePrevCoctel', 'slideNextCoctel');
     initCarrusel('slidesTrackEntradas', 'slidesDotsEntradas', 'slidePrevEntradas', 'slideNextEntradas');
     initCarrusel('slidesTrackFuertes', 'slidesDotsFuertes', 'slidePrevFuertes', 'slideNextFuertes');
     initCarrusel('slidesTrackPostres', 'slidesDotsPostres', 'slidePrevPostres', 'slideNextPostres');
