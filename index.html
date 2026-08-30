@@ -359,7 +359,7 @@
 
         /* Video vertical (Short) incrustado dentro de una tarjeta de servicio */
         .include-img-container.is-short { height:300px; background:#000; display:flex; align-items:center; justify-content:center; }
-        .include-img-container.is-short iframe { height:100%; width:calc(300px * 9 / 16); border:0; display:block; }
+        .include-img-container.is-short iframe { height:100% !important; width:calc(300px * 9 / 16) !important; border:0 !important; display:block !important; }
         /* Dos videos verticales, uno al lado del otro, en la tarjeta de la Expo */
         .expo-img-box.expo-videos { background:#000; display:flex; align-items:center; justify-content:center;
             gap:10px; padding:16px 12px; min-height:340px; flex-wrap:nowrap; }
@@ -666,7 +666,7 @@
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>2 · RECEPCIÓN Y CÓCTEL DE BIENVENIDA (1 HORA)</strong></td></tr>
                         <tr>
                             <td><img class="tbl-thumb" src="sala_lounge_1.webp" alt="Salas lounge" loading="lazy"><img class="tbl-thumb" src="periqueras_real.jpg" alt="Periqueras y sombrillas" loading="lazy"><strong>Montaje de Recepción</strong></td>
-                            <td>Salas lounge, periqueras y sombrillas, letras gigantes «XV» y corazón iluminado, con alfombra roja en la recepción.</td>
+                            <td>Salas lounge, periqueras y sombrillas (para el 30% de los invitados), letras gigantes «XV» y corazón iluminado, con alfombra roja en la recepción.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -747,14 +747,14 @@
                         </tr>
                         <tr>
                             <td><img class="tbl-thumb" src="postre_degustacion.jpg" alt="Postre a elegir" loading="lazy"><strong>Postre</strong></td>
-                            <td>Postre a elegir. Café de cortesía.</td>
+                            <td>Postre individual a elegir. Incluye servicio de <strong>café de cortesía</strong> para acompañarlo.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="tornafiesta_esquites_chilaquiles.webp" alt="Tornafiesta sopes y esquites" loading="lazy"><strong>Tornafiesta</strong></td>
-                            <td>Sopes y esquites, 50% / 50% del total de invitados.</td>
+                            <td><img class="tbl-thumb" src="tornafiesta_esquites_chilaquiles.webp" alt="Tornafiesta: barra de sopas Maruchan y esquites" loading="lazy"><strong>Tornafiesta</strong></td>
+                            <td>Barra de sopas Maruchan y esquites, 50% / 50% del total de invitados.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -772,7 +772,7 @@
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>6 · EQUIPO DE SERVICIO Y STAFF</strong></td></tr>
                         <tr>
                             <td><img class="tbl-thumb" src="meseros.webp" alt="Personal completo" loading="lazy"><strong>Staff y Personal Completo</strong></td>
-                            <td>Staff de limpieza general, hostess, meseros, capitán de meseros y 1 coordinador de servicio.</td>
+                            <td>Staff de limpieza general, hostess, meseros, capitán de meseros, personal de cocina haute cuisine y 1 coordinador de servicio.</td>
                             <td class="align-center">Equipo completo</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
@@ -1106,9 +1106,10 @@
             <div class="gallery-block-title reveal reveal-left">3 · Recepción y Cóctel de Bienvenida (1 Hora)</div>
             <div class="includes-grid">
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón</h4><p>Letras gigantes «XV» y corazón iluminado, con alfombra roja en la recepción.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida</h4><p>Margaritas, piñadas, azulitos, mojitos con y sin alcohol, y aguas frescas de fruta natural.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón</h4><p>Letras gigantes «XV» y corazón iluminado para el área de recepción y fotos.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container is-short"><div id="clipAlfombra" data-clip="xNc85w8ZOCk" data-inicio="123" data-fin="126"></div></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida</h4><p>Margaritas, piñadas, azulitos, mojitos con y sin alcohol, aguas frescas de fruta natural y agua natural.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas y más.</p></div></div></div>
             </div>
 
@@ -1129,15 +1130,16 @@
             <div class="includes-grid">
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="banquete_entradas.webp" alt="Entrada a elegir"></div><div class="include-content"><h4><i class="fas fa-bowl-food"></i> Entrada</h4><p>Ensaladas y cremas a elegir.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="banquete_plato_fuerte.webp" alt="Plato fuerte"></div><div class="include-content"><h4><i class="fas fa-drumstick-bite"></i> Plato Fuerte</h4><p>Base pollo o base cerdo con dos guarniciones a elección, pan y chile a libre demanda.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="postre_degustacion.jpg" alt="Postre a elegir"></div><div class="include-content"><h4><i class="fas fa-cookie"></i> Postre</h4><p>Postre a elegir. Café de cortesía.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tornafiesta_esquites_chilaquiles.webp" alt="Tornafiesta sopes y esquites"></div><div class="include-content"><h4><i class="fas fa-pepper-hot"></i> Tornafiesta</h4><p>Sopes y esquites, 50% / 50% del total de invitados.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="postre_degustacion.jpg" alt="Postre a elegir"></div><div class="include-content"><h4><i class="fas fa-cookie"></i> Postre</h4><p>Postre individual a elegir para cerrar el banquete.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mezcladores.webp" alt="Servicio de café"></div><div class="include-content"><h4><i class="fas fa-mug-hot"></i> Servicio de Café <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía</span></h4><p>Servicio de café de cortesía para acompañar el postre.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tornafiesta_esquites_chilaquiles.webp" alt="Tornafiesta: barra de sopas Maruchan y esquites"></div><div class="include-content"><h4><i class="fas fa-pepper-hot"></i> Tornafiesta</h4><p>Barra de sopas Maruchan y esquites, 50% / 50% del total de invitados.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mezcladores.webp" alt="Mezcladores ilimitados"></div><div class="include-content"><h4><i class="fas fa-glass-water"></i> Mezcladores Ilimitados</h4><p>Línea Coca-Cola, agua mineral, manzanita, toronja, hielo en cubo, sal y jugo de limón.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 6: EQUIPO DE SERVICIO Y STAFF ═══ -->
             <div class="gallery-block-title reveal reveal-left">6 · Equipo de Servicio y Staff</div>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="coordinacion_servicio.webp" alt="Coordinación del evento"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Coordinador de Servicio</h4><p>1 coordinador dedicado, más staff de limpieza general y hostess.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="coordinacion_servicio.webp" alt="Coordinación del evento"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Coordinador de Servicio</h4><p>1 coordinador dedicado, más staff de limpieza general, hostess y personal de cocina haute cuisine.</p></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container is-figura"><img class="include-img figura" loading="lazy" decoding="async" src="capitan.webp" alt="Capitán de meseros"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Capitán de Meseros</h4><p>Supervisión ejecutiva del servicio durante todo el evento.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="meseros.webp" alt="Meseros capacitados"></div><div class="include-content"><h4><i class="fas fa-user-tie"></i> Meseros Capacitados</h4><p>Atención de mesas durante todo el servicio de banquete.</p></div></div></div>
             </div>
@@ -1656,12 +1658,52 @@
         caja.appendChild(f);
     }
 
+    // Fragmento recortado en bucle: los parametros normales de YouTube no
+    // respetan el rango al repetir, asi que se controla con la API del reproductor.
+    function montaClipEnBucle(caja) {
+        if (!caja || caja.dataset.cargado) return;
+        caja.dataset.cargado = '1';
+        var id = caja.dataset.clip;
+        var ini = parseFloat(caja.dataset.inicio);
+        var fin = parseFloat(caja.dataset.fin);
+        function crear() {
+            new YT.Player(caja.id, {
+                videoId: id,
+                playerVars: {
+                    autoplay: 1, mute: 1, controls: 0, modestbranding: 1, rel: 0,
+                    playsinline: 1, disablekb: 1, fs: 0,
+                    start: Math.floor(ini), end: Math.ceil(fin)
+                },
+                events: {
+                    onReady: function(e){ e.target.mute(); e.target.playVideo(); },
+                    onStateChange: function(e){
+                        // Al llegar al final del fragmento, regresa al inicio del mismo.
+                        if (e.data === YT.PlayerState.ENDED) {
+                            e.target.seekTo(ini, true);
+                            e.target.playVideo();
+                        }
+                    }
+                }
+            });
+        }
+        if (window.YT && window.YT.Player) { crear(); return; }
+        var previo = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function(){ if (previo) previo(); crear(); };
+        if (!document.getElementById('ytApiScript')) {
+            var s = document.createElement('script');
+            s.id = 'ytApiScript';
+            s.src = 'https://www.youtube.com/iframe_api';
+            document.head.appendChild(s);
+        }
+    }
+
     function cargaVideosYoutube() {
         montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
         document.querySelectorAll('.is-short[data-video]').forEach(function(c){
             var t = c.parentElement.querySelector('h4') || c.parentElement.querySelector('h3');
             montaVideo(c, t ? t.textContent.trim() : 'Primavera Events Group');
         });
+        document.querySelectorAll('[data-clip]').forEach(montaClipEnBucle);
     }
 
     btnEnter.addEventListener('click', () => {
