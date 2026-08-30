@@ -387,7 +387,11 @@
         /* ══ Carrusel de slides (minuto a minuto) ══ */
         .slides-section { margin-top:50px; }
         .slides-wrap { position:relative; }
-        .slides-track { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+        /* touch-action:pan-x — el carrusel se queda solo con el gesto horizontal y
+           deja pasar el vertical a la pagina. Sin esto, al deslizar el dedo sobre
+           una foto el carrusel se quedaba el gesto y la pagina no avanzaba: habia
+           que intentar varias veces para poder seguir bajando. */
+        .slides-track { display:flex; gap:16px; overflow-x:auto; touch-action:pan-x; scroll-snap-type:x mandatory; scroll-behavior:smooth;
             padding:4px 2px 14px; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
         .slides-track::-webkit-scrollbar { height:6px; }
         .slides-track::-webkit-scrollbar-thumb { background:var(--beige); border-radius:10px; }
@@ -405,17 +409,29 @@
         .include-img-container.is-dual .include-img { width:50%; height:100%; object-fit:cover; }
         @media (max-width:768px) { .include-img-container.is-dual { height:220px !important; } }
 
-        /* Video vertical (Short) incrustado dentro de una tarjeta de servicio */
-        .include-img-container.is-short { height:300px; background:#000; display:flex; align-items:center; justify-content:center; }
-        .include-img-container.is-short iframe { height:100% !important; width:calc(300px * 9 / 16) !important; border:0 !important; display:block !important; }
+        /* ══ Video vertical (Short) incrustado en una tarjeta ══
+           YouTube encaja el video dentro de un escenario 16:9, asi que un iframe
+           con forma vertical mostraba el video diminuto y rodeado de negro. La
+           solucion es dar al iframe la forma 16:9 con la ALTURA que queremos para
+           el video (ancho = alto x 16/9), centrarlo y recortar los costados: asi
+           el video vertical llena la tarjeta sin barras. */
+        .include-img-container.is-short { height:300px; background:#000; position:relative; overflow:hidden; }
+        .include-img-container.is-short iframe {
+            position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+            height:300px !important; width:534px !important; /* 300 x 16/9 */
+            border:0 !important; display:block !important; max-width:none !important; }
+
         /* Dos videos verticales, uno al lado del otro, en la tarjeta de la Expo */
         .expo-img-box.expo-videos { background:#000; display:flex; align-items:center; justify-content:center;
             gap:10px; padding:16px 12px; min-height:340px; flex-wrap:nowrap; }
-        .expo-video.is-short { flex:0 0 auto; }
-        .expo-video.is-short iframe { height:300px; width:169px; border:0; display:block; border-radius:10px; }
+        .expo-video.is-short { flex:0 0 auto; width:169px; height:300px; position:relative; overflow:hidden; border-radius:10px; }
+        .expo-video.is-short iframe {
+            position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+            height:300px !important; width:534px !important; border:0 !important; display:block !important; max-width:none !important; }
         @media (max-width:768px) {
             .expo-img-box.expo-videos { padding:14px 8px !important; gap:8px !important; min-height:0 !important; }
-            .expo-video.is-short iframe { height:230px !important; width:129px !important; }
+            .expo-video.is-short { width:129px !important; height:230px !important; }
+            .expo-video.is-short iframe { height:230px !important; width:409px !important; } /* 230 x 16/9 */
         }
 
         /* Lista de servicios descritos solo con texto (las fotos van en el carrusel de arriba) */
@@ -439,20 +455,26 @@
             .slide-nav { width:36px; height:36px; font-size:.85rem;
                 background:rgba(255,255,255,.92); box-shadow:0 4px 14px rgba(31,31,31,.28); }
             .slide-nav.prev { left:4px; } .slide-nav.next { right:4px; }
+            /* El snap obligatorio secuestraba el desplazamiento vertical de la pagina
+               al tocar un carrusel. Con "proximity" el carrusel sigue alineando las
+               fotos pero deja pasar el scroll de la pagina sin atascarse. */
+            .slides-track { scroll-snap-type:x proximity; overscroll-behavior-x:contain; }
+            /* En movil se apaga el zoom por scroll de cada foto: obligaba a
+               recalcular estilos en cada cuadro y hacia pesado el desplazamiento. */
+            .include-img-container .include-img { animation:none !important; }
         }
-                /* Las fotos crecen suavemente mientras recorres la pagina */
-                .include-img-container:not(.is-figura):not(.is-video) .include-img {
-                    animation: sdZoomFoto linear both;
-                    animation-timeline: view();
-                    animation-range: entry 20% exit 100%;
-                }
-                /* Barra de progreso de lectura */
-                .lectura-barra { position:fixed; top:0; left:0; height:3px; width:100%; z-index:9998;
-                    background:linear-gradient(90deg, var(--primary-pink), var(--gold-accent));
-                    transform-origin:0 50%; animation: sdBarra linear both;
-                    animation-timeline: scroll(root); }
-            }
+
+        /* Las fotos crecen suavemente mientras recorres la pagina (solo escritorio) */
+        .include-img-container:not(.is-figura):not(.is-video):not(.is-short) .include-img {
+            animation: sdZoomFoto linear both;
+            animation-timeline: view();
+            animation-range: entry 20% exit 100%;
         }
+        /* Barra de progreso de lectura */
+        .lectura-barra { position:fixed; top:0; left:0; height:3px; width:100%; z-index:9998;
+            background:linear-gradient(90deg, var(--primary-pink), var(--gold-accent));
+            transform-origin:0 50%; animation: sdBarra linear both;
+            animation-timeline: scroll(root); }
 
         /* ══ Video del croquis a todo el ancho ══ */
         .video-section { margin-top:50px; }
@@ -1214,7 +1236,7 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge</h4><p>Salas lounge para que tus invitados se acomoden con comodidad durante la recepción.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="periqueras_real.jpg" alt="Periqueras y sombrillas"></div><div class="include-content"><h4><i class="fas fa-umbrella-beach"></i> Periqueras y Sombrillas</h4><p>Mesas altas tipo periquera con bancos y sombrillas para el área de jardín, para el 30% de los invitados.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón <span class="badge-incluido">Cortesía del paquete</span></h4><p>Letras decorativas a elegir «XV» o «LOVE» y corazón rojo iluminado, para el área de recepción y fotos.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container is-short"><div id="clipAlfombra" data-clip="xNc85w8ZOCk" data-inicio="123" data-fin="126"></div></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja en la recepción"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja en la Recepción <span class="badge-incluido">Cortesía del paquete</span></h4><p>Entrada con alfombra roja para recibir a la quinceañera y a sus invitados.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-dual"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"><img class="include-img" loading="lazy" decoding="async" src="snacks_jicama_chamoy.webp" alt="Jícama con chamoy y limón"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas, jícama con chamoy, chile en polvo y limón, entre otros toppings.</p></div></div></div>
             </div>
 
@@ -1356,7 +1378,7 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesa Especial para Pastel <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada y decorada para el pastel de XV años.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_regalos_real.jpeg" alt="Mesa especial para regalos"></div><div class="include-content"><h4><i class="fas fa-gift"></i> Mesa Especial para Regalos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Mesa montada para recibir los obsequios de tus invitados.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Chisperos de pirotecnia en frío"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 2 Chisperos <span class="badge-incluido">Cortesía del paquete</span></h4><p>Dos chisperos de pirotecnia en frío. <em>En esta propuesta se duplican a 4 — ver cortesías adicionales.</em></p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short"><div id="clipAlfombra2" data-clip="xNc85w8ZOCk" data-inicio="123" data-fin="126"></div></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja <span class="badge-incluido">Cortesía del paquete</span> <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Alfombra roja para una entrada espectacular en la recepción.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="alfombra_roja.webp" alt="Alfombra roja"></div><div class="include-content"><h4><i class="fas fa-shoe-prints"></i> Alfombra Roja <span class="badge-incluido">Cortesía del paquete</span></h4><p>Alfombra roja para una entrada espectacular en la recepción.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 9B: CORTESÍAS ADICIONALES EXCLUSIVAS DE ESTA PROPUESTA ═══ -->
@@ -1921,52 +1943,29 @@
         caja.appendChild(f);
     }
 
-    // Fragmento recortado en bucle: los parametros normales de YouTube no
-    // respetan el rango al repetir, asi que se controla con la API del reproductor.
-    function montaClipEnBucle(caja) {
-        if (!caja || caja.dataset.cargado) return;
-        caja.dataset.cargado = '1';
-        var id = caja.dataset.clip;
-        var ini = parseFloat(caja.dataset.inicio);
-        var fin = parseFloat(caja.dataset.fin);
-        function crear() {
-            new YT.Player(caja.id, {
-                videoId: id,
-                playerVars: {
-                    autoplay: 1, mute: 1, controls: 0, modestbranding: 1, rel: 0,
-                    playsinline: 1, disablekb: 1, fs: 0,
-                    start: Math.floor(ini), end: Math.ceil(fin)
-                },
-                events: {
-                    onReady: function(e){ e.target.mute(); e.target.playVideo(); },
-                    onStateChange: function(e){
-                        // Al llegar al final del fragmento, regresa al inicio del mismo.
-                        if (e.data === YT.PlayerState.ENDED) {
-                            e.target.seekTo(ini, true);
-                            e.target.playVideo();
-                        }
-                    }
-                }
+    // Cada video se monta hasta que esta por entrar en pantalla. Antes se creaban
+    // los nueve de golpe al ingresar, y en movil eso trababa el desplazamiento.
+    function alAcercarse(caja, monta) {
+        if (!caja) return;
+        if (!('IntersectionObserver' in window)) { monta(); return; }
+        var io = new IntersectionObserver(function(entradas){
+            entradas.forEach(function(e){
+                if (!e.isIntersecting) return;
+                io.disconnect();
+                monta();
             });
-        }
-        if (window.YT && window.YT.Player) { crear(); return; }
-        var previo = window.onYouTubeIframeAPIReady;
-        window.onYouTubeIframeAPIReady = function(){ if (previo) previo(); crear(); };
-        if (!document.getElementById('ytApiScript')) {
-            var s = document.createElement('script');
-            s.id = 'ytApiScript';
-            s.src = 'https://www.youtube.com/iframe_api';
-            document.head.appendChild(s);
-        }
+        }, { rootMargin: '300px 0px' });
+        io.observe(caja);
     }
 
     function cargaVideosYoutube() {
+        // La portada si carga de inmediato: es lo primero que ve el cliente.
         montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
         document.querySelectorAll('.is-short[data-video]').forEach(function(c){
             var t = c.parentElement.querySelector('h4') || c.parentElement.querySelector('h3');
-            montaVideo(c, t ? t.textContent.trim() : 'Primavera Events Group');
+            var titulo = t ? t.textContent.trim() : 'Primavera Events Group';
+            alAcercarse(c, function(){ montaVideo(c, titulo); });
         });
-        document.querySelectorAll('[data-clip]').forEach(montaClipEnBucle);
     }
 
     btnEnter.addEventListener('click', () => {
@@ -2047,11 +2046,21 @@
         function activarTodo(){ reveals.forEach(function(r){ r.classList.add('active'); }); }
         window.addEventListener('beforeprint', activarTodo);
 
-        // parallax del hero, igual que en antonio
-        window.addEventListener('scroll', function(){
-            var hero = document.querySelector('.hero');
-            if (hero) hero.style.backgroundPosition = 'center calc(62% + ' + (window.pageYOffset * 0.25) + 'px)';
-        }, { passive:true });
+        // Parallax de la portada. Solo en escritorio y sincronizado con el repintado:
+        // antes reescribia el fondo en cada evento de scroll, lo que en movil obligaba
+        // a recalcular estilos constantemente y hacia que la pagina se sintiera trabada.
+        var hero = document.querySelector('.hero');
+        if (hero && window.matchMedia('(min-width:769px)').matches) {
+            var pendiente = false;
+            window.addEventListener('scroll', function(){
+                if (pendiente) return;
+                pendiente = true;
+                requestAnimationFrame(function(){
+                    hero.style.backgroundPosition = 'center calc(62% + ' + (window.pageYOffset * 0.25) + 'px)';
+                    pendiente = false;
+                });
+            }, { passive:true });
+        }
     }
 
     if (document.readyState === 'loading') {
