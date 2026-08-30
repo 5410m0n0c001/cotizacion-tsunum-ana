@@ -1103,6 +1103,28 @@
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short" data-video="Q4L2srgBU2E"></div><div class="include-content"><h4><i class="fas fa-clipboard-list"></i> Kit Organizador de Eventos <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF) para planear tu evento paso a paso. Descárgalo más abajo.</p></div></div></div>
             </div>
 
+            <!-- ═══ SOCIAL MEDIA CONTENT — cortesía incluida ═══ -->
+            <div class="gallery-block-title reveal reveal-left">Social Media Content · Contenido Ligero para Redes Sociales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:6px; letter-spacing:.5px;">Cortesía especial</span></div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Contenido vertical, ágil y listo para publicar el mismo fin de semana — <strong>no sustituye a la fotografía y video profesional</strong> (que son formatos largos, cinematográficos y de edición fina): la <em>complementa</em>. Aquí lo que buscamos es la reacción espontánea, la risa y el mensaje sincero de tus invitados. Así se ve en eventos reales:</p>
+            <div class="includes-grid">
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-short" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Ejemplo: La Ceremonia <span class="badge-video"><i class="fas fa-play"></i> Reel</span></h4><p>Reel vertical de la ceremonia religiosa, listo para publicar en redes.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-short" data-video="xNc85w8ZOCk"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Ejemplo: La Fiesta <span class="badge-video"><i class="fas fa-play"></i> Reel</span></h4><p>Reel vertical del ambiente y la fiesta, con la energía real del evento.</p></div></div></div>
+            </div>
+            <div class="servicios-lista">
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-clone"></i> Dinámica del Mazo de Retos</h4>
+                    <p>Llevamos un mazo de tarjetas a cada mesa: los invitados toman una al azar y cada tarjeta trae una imagen graciosa, un gesto o un reto que deben cumplir. Nosotros capturamos el momento con fotografía.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-images"></i> Álbum de Recuerdo con tus Invitados</h4>
+                    <p>Recopilamos todas esas fotos de la dinámica y te las entregamos: un recuerdo divertido y espontáneo de la festejada junto a cada una de sus mesas.</p>
+                </div>
+                <div class="servicio-detalle reveal reveal-left">
+                    <h4><i class="fas fa-comment-dots"></i> Buenos Deseos en Video</h4>
+                    <p>Interactuamos con tus invitados para que graben en video sus mejores deseos para la quinceañera. Te los entregamos listos para compartir en redes o guardar como recuerdo.</p>
+                </div>
+            </div>
+
             <!-- ═══ BLOQUE 10: COMPLEMENTOS ADICIONALES (A COTIZAR POR SEPARADO) ═══ -->
             <div class="gallery-block-title reveal reveal-left">10 · Complementos Adicionales (Fotografía, Video &amp; Pastel de XV Años)</div>
             <div class="includes-grid">
@@ -1557,7 +1579,8 @@
     function cargaVideosYoutube() {
         montaVideo(document.getElementById('heroVideo'), 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda');
         document.querySelectorAll('.is-short[data-video]').forEach(function(c){
-            montaVideo(c, 'Kit Organizador de Eventos — Primavera Events Group');
+            var t = c.parentElement.querySelector('h4');
+            montaVideo(c, t ? t.textContent.trim() : 'Primavera Events Group');
         });
     }
 
