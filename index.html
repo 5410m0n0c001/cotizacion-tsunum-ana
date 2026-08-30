@@ -44,6 +44,8 @@
         /* HERO — foto real oficial de Jardín Tsú Nuum (atardecer, cúpula del salón). */
         .hero { position:relative; height:55vh; min-height:380px; overflow:hidden; display:flex; align-items:flex-end; justify-content:center; background:url('tsunuum_2.webp') center 55%/cover no-repeat, linear-gradient(135deg,var(--primary-dark) 0%,var(--dark-grad-end) 100%); }
         .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(31,31,31,.2), rgba(31,31,31,.85)); z-index:1; }
+        .btn-watch-video { position:absolute; top:20px; right:20px; z-index:3; display:inline-flex; align-items:center; gap:8px; background:rgba(31,31,31,.55); backdrop-filter:blur(6px); color:var(--white); border:1px solid rgba(255,255,255,.4); border-radius:30px; padding:9px 18px; font-size:.8rem; font-weight:600; text-decoration:none; }
+        .btn-watch-video:hover { background:var(--primary-pink); border-color:var(--primary-pink); }
         .hero-content { position:relative; z-index:2; text-align:center; padding:0 20px 60px; color:var(--white); max-width:800px; }
         .hero-eyebrow { font-size:.8rem; letter-spacing:5px; text-transform:uppercase; color:var(--gold-accent); font-weight:600; margin-bottom:12px; }
         .hero h1 { font-size:3rem; font-weight:700; line-height:1.1; text-shadow:0 3px 20px rgba(0,0,0,.6); margin-bottom:10px; }
@@ -485,6 +487,9 @@
             .price-label { font-size:8pt !important; color:rgba(255,255,255,.85) !important; margin-bottom:0 !important; }
             .price-note { font-size:6.8pt !important; margin-top:8px !important; color:rgba(255,255,255,.6) !important; }
             .price-breakdown { display:none !important; }
+            .price-regular-strike { font-size:13pt !important; margin:2px 0 !important; }
+            .price-savings-badge { font-size:7.5pt !important; padding:4px 12px !important; margin-top:6px !important; }
+            .price-total-chico { font-size:9pt !important; margin-top:6px !important; }
 
             h2, h3, h4, .section-title { page-break-after:avoid !important; break-after:avoid !important; }
             .pricing-table tr { page-break-inside:avoid !important; }
@@ -518,6 +523,7 @@
     <button class="audio-toggle" id="audioToggle" title="Activar/Silenciar música"><i class="fas fa-volume-mute"></i></button>
 
     <header class="hero">
+        <a class="btn-watch-video" href="https://youtu.be/5xVqNRu6nu8" target="_blank" title="Ver video oficial del recinto"><i class="fas fa-circle-play"></i> Ver Video del Recinto</a>
         <div class="hero-content">
             <p class="hero-eyebrow">PROPUESTA PERSONALIZADA PARA ANA</p>
             <h1>XV Años &middot; Paquete Vuelo Esmeralda</h1>
@@ -589,21 +595,21 @@
 
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>1 · CEREMONIA RELIGIOSA (1 HORA)</strong></td></tr>
                         <tr>
-                            <td><div class="tbl-thumb-pend"><i class="fas fa-image"></i></div><strong>Kit Religioso &amp; Sonorización</strong></td>
+                            <td><img class="tbl-thumb" src="ceremonia_kit_religioso.jpg" alt="Kit religioso" loading="lazy"><img class="tbl-thumb" src="ceremonia_sonorizacion.jpg" alt="Sonorización" loading="lazy"><strong>Kit Religioso &amp; Sonorización</strong></td>
                             <td>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas. Incluye micrófono inalámbrico y audio para la sonorización de la ceremonia.</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><div class="tbl-thumb-pend"><i class="fas fa-image"></i></div><strong>Oficiante y Coro</strong></td>
+                            <td><img class="tbl-thumb" src="ceremonia_oficiante.jpg" alt="Oficiante" loading="lazy"><strong>Oficiante y Coro</strong></td>
                             <td>Padre / oficiante religioso y coro para acompañar la ceremonia.</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Incluido</td>
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><div class="tbl-thumb-pend"><i class="fas fa-image"></i></div><strong>Hospedaje Cortesía</strong></td>
+                            <td><img class="tbl-thumb" src="hospedaje_habitacion.png" alt="Hospedaje" loading="lazy"><strong>Hospedaje Cortesía</strong></td>
                             <td>Hospedaje incluido como cortesía para los anfitriones. <em>El paquete oficial Vuelo Esmeralda contempla el hospedaje como opcional y con costo adicional; en esta propuesta personalizada va incluido sin costo.</em></td>
                             <td class="align-center">1</td>
                             <td class="align-right">Cortesía</td>
@@ -626,7 +632,7 @@
                             <td class="align-right">Incluido</td>
                         </tr>
                         <tr>
-                            <td><img class="tbl-thumb" src="canapes_bienvenida.jpg" alt="Barra de snacks" loading="lazy"><strong>Barra de Snacks (12 Toppings)</strong></td>
+                            <td><img class="tbl-thumb" src="barra_snacks_real.jpg" alt="Barra de snacks" loading="lazy"><strong>Barra de Snacks (12 Toppings)</strong></td>
                             <td>Barra de snacks con 12 toppings dulces y salados: chicharrones, palomitas, etc.</td>
                             <td class="align-center">150 Px</td>
                             <td class="align-right">Incluido</td>
@@ -757,7 +763,7 @@
 
                         <tr style="background:var(--soft-pink);"><td colspan="5"><strong>8 · PERFORMANCE Y EFECTOS</strong></td></tr>
                         <tr>
-                            <td><div class="tbl-thumb-pend"><i class="fas fa-image"></i></div><strong>Show de Cabezones</strong></td>
+                            <td><img class="tbl-thumb" src="show_cabezones_real.jpg" alt="Show de cabezones" loading="lazy"><strong>Show de Cabezones</strong></td>
                             <td>Show de cabezones, ejemplo La Máscara, Bad Bunny, Luis Miguel, etc. (personajes a confirmar disponibilidad).</td>
                             <td class="align-center">1</td>
                             <td class="align-right">Incluido</td>
@@ -916,15 +922,14 @@
 
             <!-- ══ INVERSIÓN TOTAL BASE ══ -->
             <div class="pricing-section reveal" id="inversionBase">
-                <h3>Precio Especial de Septiembre 2026</h3>
+                <h3>Precio Regular de Lista</h3>
+                <div class="price-regular-strike" style="font-size:2.2rem; font-weight:700; text-decoration:line-through; color:rgba(255,255,255,.4); font-family:var(--font-serif); margin:4px 0 2px;">$314,850.00 MXN</div>
+                <div class="price-label" style="margin-bottom:22px;">$2,099.00 MXN/persona · 150 invitados</div>
+                <h3 style="color:var(--white); font-size:1.5rem; letter-spacing:1px;">Tu Precio Especial de Septiembre 2026</h3>
                 <div class="price-hero" id="totalBaseDisplay">$1,900.00<sup>MXN</sup></div>
                 <div class="price-label">por persona · 150 invitados · 1 hr ceremonia + 1 hr cóctel + 8 hrs de servicio</div>
-                <div class="price-total-chico">Inversión total del evento: <strong id="totalEventoChico">$285,000.00 MXN</strong></div>
-                <div class="price-breakdown" style="display:block; margin-top:18px;">
-                    <div class="price-breakdown-row"><span>Precio regular de lista (150 invitados · $2,099.00/persona)</span><span>$314,850.00 MXN</span></div>
-                    <div class="price-breakdown-row" style="font-weight:700; color:var(--gold-accent);"><span>Precio especial (apartando dentro de septiembre 2026)</span><span>$285,000.00 MXN</span></div>
-                    <div class="price-breakdown-row" style="border-top:1px solid rgba(255,255,255,.12); margin-top:8px; padding-top:8px; font-weight:700;"><span>Ahorro real por apartar en septiembre</span><span>$29,850.00 MXN</span></div>
-                </div>
+                <div class="price-total-chico" style="font-size:1.35rem; font-weight:700; margin-top:16px;">Inversión total del evento: <strong id="totalEventoChico" style="color:var(--gold-accent);">$285,000.00 MXN</strong></div>
+                <div class="price-savings-badge" style="display:inline-block; margin-top:14px; background:rgba(201,169,110,.18); border:1px solid var(--gold-accent); border-radius:30px; padding:8px 22px; font-weight:700; color:var(--gold-accent); font-size:.95rem;">Ahorras $29,850.00 MXN apartando en septiembre</div>
                 <div class="price-breakdown" id="desgloseExtras" style="display:none;">
                     <div class="price-breakdown-row"><span>Cotización base</span><span id="totalBaseTexto">$285,000.00</span></div>
                     <ul id="listaExtras" style="list-style:none; margin:6px 0; padding:0;"></ul>
@@ -963,25 +968,41 @@
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_3.webp" alt="Área de recepción de Jardín Tsú Nuum iluminada de noche"></div><div class="include-content"><h4><i class="fas fa-lightbulb"></i> Área de Recepción Iluminada</h4><p>Montajes integrales de lujo con gran iluminación ambiental bajo la cúpula del salón.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_1.webp" alt="Cascada de piedra volcánica en el jardín"></div><div class="include-content"><h4><i class="fas fa-water"></i> Cascada y Jardín</h4><p>Entornos fotogénicos con cascada de piedra volcánica y vegetación tropical, ideales para las fotos del evento.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tsunuum_4.webp" alt="Arcos de piedra iluminados en el jardín"></div><div class="include-content"><h4><i class="fas fa-tree"></i> Arquitectura de Jardín</h4><p>Arcos de piedra y árboles maduros iluminados, aportando privacidad y un entorno espectacular al recinto.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container img-pendiente"><i class="fas fa-image"></i><span>Foto pendiente: hospedaje asociado</span></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Hospedaje incluido como cortesía para los anfitriones. <em>El paquete oficial Vuelo Esmeralda contempla el hospedaje como opcional y con costo adicional; en esta propuesta personalizada va incluido sin costo.</em></p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Habitación de hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Hospedaje incluido como cortesía para los anfitriones. <em>El paquete oficial Vuelo Esmeralda contempla el hospedaje como opcional y con costo adicional; en esta propuesta personalizada va incluido sin costo.</em></p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="tiempodeservicio.webp" alt="10 horas de presencia en el evento"></div><div class="include-content"><h4><i class="fas fa-clock"></i> 10 Horas de Presencia</h4><p>1 hora de ceremonia religiosa + 1 hora de cóctel de bienvenida + 8 horas de banquete y fiesta.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 2: CEREMONIA RELIGIOSA ═══ -->
             <div class="gallery-block-title reveal reveal-left">2 · Ceremonia Religiosa (1 Hora)</div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-6px;">Fotos reales de ceremonias religiosas anteriores de Primavera Events Group — así se ve el kit ceremonial, la sonorización y el momento con el oficiante. Desliza para ver todas.</p>
+            <div class="slides-section reveal" style="margin-top:0;">
+                <div class="slides-wrap">
+                    <button class="slide-nav prev" id="slidePrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slides-track" id="slidesTrack">
+                        <div class="slide"><img src="ceremonia_oficiante.jpg" alt="Oficiante durante la ceremonia religiosa" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_atril_general.jpg" alt="Atril y montaje general de la ceremonia" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_kit_religioso.jpg" alt="Reclinatorio y altar del kit religioso" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_sonorizacion.jpg" alt="Sonorización con micrófono inalámbrico" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_sillas.jpg" alt="Sillas Tiffany blancas de la ceremonia" loading="lazy"></div>
+                        <div class="slide"><img src="ceremonia_cruz_detalle.jpg" alt="Detalle de la cruz y el altar" loading="lazy"></div>
+                    </div>
+                    <button class="slide-nav next" id="slideNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slides-dots" id="slidesDots"></div>
+            </div>
             <div class="includes-grid">
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container img-pendiente"><i class="fas fa-image"></i><span>Foto pendiente: kit ceremonial real de Jardín Tsú Nuum</span></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo</h4><p>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container img-pendiente"><i class="fas fa-image"></i><span>Foto pendiente</span></div><div class="include-content"><h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia</h4><p>Micrófono inalámbrico y audio para toda la ceremonia religiosa.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container img-pendiente"><i class="fas fa-image"></i><span>Foto pendiente</span></div><div class="include-content"><h4><i class="fas fa-cross"></i> Oficiante y Coro</h4><p>Padre / oficiante religioso y coro acompañando la ceremonia.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Kit religioso completo"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Kit Religioso Completo</h4><p>Atril de lectura, cruz, reclinatorio, banca, arreglo floral para la cruz, entelado y 60 sillas Tiffany blancas.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_sonorizacion.jpg" alt="Sonorización de la ceremonia"></div><div class="include-content"><h4><i class="fas fa-microphone"></i> Sonorización de la Ceremonia</h4><p>Micrófono inalámbrico y audio para toda la ceremonia religiosa.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_oficiante.jpg" alt="Oficiante y coro"></div><div class="include-content"><h4><i class="fas fa-cross"></i> Oficiante y Coro</h4><p>Padre / oficiante religioso y coro acompañando la ceremonia.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 3: RECEPCIÓN Y CÓCTEL DE BIENVENIDA ═══ -->
             <div class="gallery-block-title reveal reveal-left">3 · Recepción y Cóctel de Bienvenida (1 Hora)</div>
             <div class="includes-grid">
                 <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="sala_lounge_1.webp" alt="Salas lounge"></div><div class="include-content"><h4><i class="fas fa-couch"></i> Salas Lounge, Periqueras y Sombrillas</h4><p>Montaje de recepción con salas lounge, periqueras y sombrillas.</p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_iluminadas.webp" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón</h4><p>Letras gigantes «XV» y corazón iluminado, con alfombra roja en la recepción.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="letras_gigantes_real.jpg" alt="Letras gigantes XV"></div><div class="include-content"><h4><i class="fas fa-font"></i> Letras Gigantes «XV» y Corazón</h4><p>Letras gigantes «XV» y corazón iluminado, con alfombra roja en la recepción.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida</h4><p>Margaritas, piñadas, azulitos, mojitos con y sin alcohol, y aguas frescas de fruta natural.</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="canapes_bienvenida.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas y más.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings)</h4><p>Barra de snacks dulces y salados: chicharrones, palomitas y más.</p></div></div></div>
             </div>
 
             <!-- ═══ BLOQUE 4: MONTAJE Y DECORACIÓN ═══ -->
@@ -1026,19 +1047,25 @@
             <div class="gallery-block-title reveal reveal-left">8 · Amenidades, Performance y Efectos</div>
             <div class="includes-grid">
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="decoracion_globos.webp" alt="Globos multicolores"></div><div class="include-content"><h4><i class="fas fa-circle"></i> Amenidades de Pista</h4><p>Globos multicolores, collares hawaianos y pulseras neón.</p></div></div></div>
-                <div class="reveal"><div class="include-item"><div class="include-img-container img-pendiente"><i class="fas fa-image"></i><span>Foto pendiente: confirmar personaje de cabezón con tu coordinador</span></div><div class="include-content"><h4><i class="fas fa-masks-theater"></i> Show de Cabezones</h4><p>Ejemplo: La Máscara, Bad Bunny, Luis Miguel, etc. (personajes sujetos a disponibilidad).</p></div></div></div>
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="robot_leds.webp" alt="Robot LED"></div><div class="include-content"><h4><i class="fas fa-robot"></i> Robot LED</h4><p>Personaje con iluminación robótica LED en pista.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="show_cabezones_real.jpg" alt="Show de cabezones"></div><div class="include-content"><h4><i class="fas fa-masks-theater"></i> Show de Cabezones</h4><p>Ejemplo: La Máscara, Bad Bunny, Luis Miguel, etc. (personajes sujetos a disponibilidad).</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-figura"><img class="include-img figura" loading="lazy" decoding="async" src="robot_leds.webp" alt="Robot LED"></div><div class="include-content"><h4><i class="fas fa-robot"></i> Robot LED</h4><p>Personaje con iluminación robótica LED en pista.</p></div></div></div>
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container is-video"><video id="videoCabina360" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="cabina_360.webp"><source src="cabina_360_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-camera-retro"></i> Cabina a Elegir · Opción A: Cabina 360° <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>A elegir 1 opción sin costo: cabina 360°, cabina inflable o espejo mágico (disponibilidad de espejo a confirmar).</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="cabina_inflable.jpg" alt="Cabina inflable de fotos"></div><div class="include-content"><h4><i class="fas fa-box"></i> Cabina a Elegir · Opción B: Cabina Inflable</h4><p>Cabina inflable iluminada para fotos instantáneas (a elegir 1 opción sin costo entre 3).</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Detonación de chisperos"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 4 Chisperos <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Set de 4 chisperos inalámbricos de pirotecnia en frío. <em>No forma parte del paquete Vuelo Esmeralda estándar — se otorga como cortesía especial en esta propuesta personalizada.</em></p></div></div></div>
             </div>
 
-            <!-- ═══ BLOQUE 9: CORTESÍAS ADICIONALES ═══ -->
-            <div class="gallery-block-title reveal reveal-left">9 · Cortesías Adicionales</div>
-            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Ninguna de las cortesías de este bloque forma parte del paquete Vuelo Esmeralda estándar — se otorgan de manera especial en esta propuesta personalizada para Ana.</p>
+            <!-- ═══ BLOQUE 9: TODO LO QUE TE LLEVAS DE CORTESÍA (RESUMEN VISUAL) ═══ -->
+            <div class="gallery-block-title reveal reveal-left">9 · Todo lo que te Llevas de Cortesía (Resumen Visual)</div>
+            <p class="calc-hint reveal reveal-left" style="margin-top:-10px;">Nada de esto forma parte del paquete Vuelo Esmeralda estándar — se agrega gratis, sin costo adicional, únicamente en esta propuesta personalizada para Ana. Algunas fotos ya las viste arriba; se repiten aquí para que tengas todo el resumen junto.</p>
             <div class="includes-grid">
-                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel y regalos"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesas Especiales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Mesa especial para pastel y mesa especial para regalos. <em>No incluidas en el paquete estándar.</em></p></div></div></div>
-                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Con contenido ligero para redes sociales y reel vertical. <em>No incluida en el paquete estándar — se otorga como cortesía especial en esta propuesta.</em></p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="ceremonia_kit_religioso.jpg" alt="Ceremonia religiosa completa"></div><div class="include-content"><h4><i class="fas fa-place-of-worship"></i> Ceremonia Religiosa Completa <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Kit ceremonial, sonorización, oficiante y coro. El paquete oficial no contempla ningún servicio de ceremonia.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="hospedaje_habitacion.png" alt="Hospedaje"></div><div class="include-content"><h4><i class="fas fa-house"></i> Hospedaje <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Incluido sin costo para los anfitriones. El paquete oficial lo ofrece opcional y con costo adicional.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="margaritas.webp" alt="Cóctel de bienvenida con y sin alcohol"></div><div class="include-content"><h4><i class="fas fa-martini-glass-citrus"></i> Cóctel de Bienvenida Con y Sin Alcohol <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Margaritas, piñadas, azulitos y mojitos, con y sin alcohol. No especificado como tal en el paquete oficial.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="barra_snacks_real.jpg" alt="Barra de snacks 12 toppings"></div><div class="include-content"><h4><i class="fas fa-cookie-bite"></i> Barra de Snacks (12 Toppings) <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>No contemplada específicamente en el paquete oficial.</p></div></div></div>
+                <div class="reveal"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="saxofonista_boda.jpg" alt="Saxofonista"></div><div class="include-content"><h4><i class="fas fa-music"></i> Saxofonista en Vivo <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Para amenizar la comida. No contemplado en el paquete oficial.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="pirotecnia_fria_chisperos.webp" alt="Detonación de 4 chisperos"></div><div class="include-content"><h4><i class="fas fa-fire"></i> Detonación de 4 Chisperos <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Pirotecnia en frío. No contemplada en el paquete oficial.</p></div></div></div>
+                <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="mesa_pastel.webp" alt="Mesa especial para pastel y regalos"></div><div class="include-content"><h4><i class="fas fa-cake-candles"></i> Mesas Especiales <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Mesa especial para pastel y mesa especial para regalos. No incluidas en el paquete estándar.</p></div></div></div>
+                <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span style="font-size:0.65rem; background:var(--primary-pink); color:var(--white); padding:2px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; margin-left:4px;">Cortesía especial</span></h4><p>Con contenido ligero para redes sociales y reel vertical. No incluida en el paquete estándar.</p></div></div></div>
                 <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="banquete_entradas.webp"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Cortesía post-contrato: se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</p></div></div></div>
             </div>
 
@@ -1110,6 +1137,20 @@
                 <div id="calcGrid"></div>
             </div>
 
+            <!-- ══ RESUMEN FINAL COMPARATIVO ══ -->
+            <div class="pricing-section reveal" style="margin-top:40px;">
+                <h3><i class="fas fa-scale-balanced"></i> Resumen Final: Lo que Recibes vs. Lo que Pagas</h3>
+                <div class="price-breakdown" style="display:block; text-align:left; max-width:520px; margin:18px auto 0;">
+                    <div class="price-breakdown-row"><span>Precio regular de lista (150 invitados)</span><span>$314,850.00 MXN</span></div>
+                    <div class="price-breakdown-row"><span>+ Ceremonia religiosa completa, hospedaje, cóctel con/sin alcohol, barra de snacks, saxofonista, chisperos, mesas especiales e invitación premium</span><span style="color:var(--gold-accent); font-weight:700;">Cortesía</span></div>
+                    <div class="price-breakdown-row" style="border-top:1px solid rgba(255,255,255,.12); margin-top:8px; padding-top:8px;"><span>Valor total si todo se cobrara por separado</span><span>Más de $314,850.00 MXN</span></div>
+                    <div class="price-breakdown-row" style="font-weight:700; color:var(--gold-accent); font-size:1.05rem; border-top:1px solid rgba(255,255,255,.12); margin-top:8px; padding-top:8px;"><span>Lo que realmente pagas (precio especial de septiembre)</span><span id="resumenFinalBase">$285,000.00 MXN</span></div>
+                    <div class="price-breakdown-row" id="resumenFinalExtrasRow" style="display:none;"><span>+ Complementos de pago que agregaste</span><span id="resumenFinalExtras">$0.00</span></div>
+                    <div class="price-breakdown-row" style="border-top:1px solid rgba(255,255,255,.12); margin-top:8px; padding-top:8px; font-weight:700;"><span>Total a pagar hoy</span><span id="resumenFinalTotal">$285,000.00 MXN</span></div>
+                </div>
+                <div class="price-note">Esta inversión especial solo aplica si el apartado se formaliza dentro de septiembre de 2026.</div>
+            </div>
+
             <!-- ══ PUBLICIDAD — sección obligatoria #10 de DIRECTIVES.md (4 imágenes promo reales) ══ -->
             <div class="publicidad-section">
                 <h3 class="section-title reveal reveal-left"><i class="fas fa-bullhorn"></i> Descubre Más de Primavera Events Group</h3>
@@ -1160,6 +1201,7 @@
                 <div class="kit-buttons">
                     <a class="btn-kit" href="smart_event_planner_pro.xlsx" download><i class="fas fa-file-excel"></i> Descargar Excel</a>
                     <a class="btn-kit" href="guia_maestra_primavera.pdf" download><i class="fas fa-file-pdf"></i> Descargar Guía PDF</a>
+                    <a class="btn-kit" href="https://youtube.com/shorts/Q4L2srgBU2E" target="_blank" style="background:#25D366;"><i class="fas fa-play"></i> Ver Video del Kit</a>
                 </div>
             </div>
 
@@ -1393,6 +1435,15 @@
                 .map(function(e){ return '<li><span>+ ' + e.nombre + '</span><span>' + moneyFmt(e.precio) + '</span></li>'; })
                 .join('');
             document.getElementById('ctbVacio').style.display = seleccion.length ? 'none' : 'block';
+        }
+
+        // Resumen final comparativo (se mantiene en sincronia con el cotizador)
+        var rfTotal = document.getElementById('resumenFinalTotal');
+        if (rfTotal) {
+            rfTotal.textContent = moneyFmt(totalFinal) + ' MXN';
+            var rfRow = document.getElementById('resumenFinalExtrasRow');
+            document.getElementById('resumenFinalExtras').textContent = moneyFmt(extras) + ' MXN';
+            rfRow.style.display = seleccion.length ? 'flex' : 'none';
         }
     }
 
