@@ -41,8 +41,12 @@
             .btn-enter { padding:10px 20px !important; font-size:.78rem !important; }
         }
 
-        /* HERO — foto real oficial de Jardín Tsú Nuum (atardecer, cúpula del salón). */
+        /* HERO — video oficial de Jardín Tsú Nuum en silencio y en bucle,
+           con la foto real oficial como respaldo si el video no carga. */
         .hero { position:relative; height:55vh; min-height:380px; overflow:hidden; display:flex; align-items:flex-end; justify-content:center; background:url('tsunuum_2.webp') center 55%/cover no-repeat, linear-gradient(135deg,var(--primary-dark) 0%,var(--dark-grad-end) 100%); }
+        .hero-video { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+        .hero-video iframe { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+            width:100vw; height:56.25vw; min-height:100%; min-width:177.78vh; border:0; }
         .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(31,31,31,.2), rgba(31,31,31,.85)); z-index:1; }
         .btn-watch-video { position:absolute; top:20px; right:20px; z-index:3; display:inline-flex; align-items:center; gap:8px; background:rgba(31,31,31,.55); backdrop-filter:blur(6px); color:var(--white); border:1px solid rgba(255,255,255,.4); border-radius:30px; padding:9px 18px; font-size:.8rem; font-weight:600; text-decoration:none; }
         .btn-watch-video:hover { background:var(--primary-pink); border-color:var(--primary-pink); }
@@ -523,6 +527,8 @@
     <button class="audio-toggle" id="audioToggle" title="Activar/Silenciar música"><i class="fas fa-volume-mute"></i></button>
 
     <header class="hero">
+        <!-- El video se inyecta al entrar a la propuesta (ver script al final): siempre en silencio y en bucle. -->
+        <div class="hero-video" id="heroVideo" data-video="5xVqNRu6nu8"></div>
         <a class="btn-watch-video" href="https://youtu.be/5xVqNRu6nu8" target="_blank" title="Ver video oficial del recinto"><i class="fas fa-circle-play"></i> Ver Video del Recinto</a>
         <div class="hero-content">
             <p class="hero-eyebrow">PROPUESTA PERSONALIZADA PARA ANA</p>
@@ -1501,10 +1507,29 @@
     let audioPlaying = false;
 
     document.body.style.overflow = 'hidden';   // sin scroll detras del preloader
+
+    // Video de portada: se carga hasta que el cliente entra a la propuesta, para que
+    // la pagina abra ligera. Siempre silenciado y en bucle — nunca reproduce audio.
+    function cargaVideoPortada() {
+        var caja = document.getElementById('heroVideo');
+        if (!caja || caja.dataset.cargado) return;
+        caja.dataset.cargado = '1';
+        var id = caja.dataset.video;
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + id +
+                '?autoplay=1&mute=1&loop=1&playlist=' + id +
+                '&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1';
+        f.title = 'Jardín Tsú Nuum — Paquete Vuelo Esmeralda';
+        f.allow = 'autoplay; encrypted-media';
+        f.setAttribute('frameborder', '0');
+        caja.appendChild(f);
+    }
+
     btnEnter.addEventListener('click', () => {
         document.body.style.overflow = '';
         window.scrollTo(0, 0);
         preloader.classList.add('fade-out');
+        cargaVideoPortada();
     });
     audioToggle.addEventListener('click', () => {
         if (audioPlaying) { bgAudio.pause(); audioPlaying = false; }
