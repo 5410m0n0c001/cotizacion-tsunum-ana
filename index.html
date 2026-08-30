@@ -276,6 +276,12 @@
         .cta-container { text-align:center; margin-top:50px; padding:40px 20px; background:var(--beige); border-radius:20px; }
         .cta-container p { margin-bottom:20px; font-style:italic; font-weight:500; font-size:.95rem; }
         .btn-wa { background:#25D366; color:white; padding:14px 35px; border-radius:50px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; font-weight:600; }
+        .cta-botones { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+        .cta-botones .btn-wa { box-shadow:0 8px 22px rgba(37,211,102,.28); transition:transform .25s ease, box-shadow .25s ease; }
+        .cta-botones .btn-wa:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(37,211,102,.4); }
+        .btn-wa-alt { background:var(--primary-dark) !important; box-shadow:0 8px 22px rgba(31,31,31,.25) !important; }
+        .btn-wa-alt:hover { background:var(--dark-grad-end) !important; box-shadow:0 12px 28px rgba(31,31,31,.35) !important; }
+        @media (max-width:768px) { .cta-botones .btn-wa { width:100%; justify-content:center; padding:14px 20px; font-size:.88rem; } }
 
         /* ══ Planners Contact Cards (Richard & Jessy) ══ */
         .planners-contact-section { margin-top:50px; padding:40px 20px; background:linear-gradient(135deg, rgba(253,242,244,.8), rgba(248,250,252,.9)); border-radius:24px; border:1px solid rgba(226,160,182,.25); text-align:center; }
@@ -1637,6 +1643,27 @@
                     <li><strong>Para confirmar:</strong> se requiere depósito de apartado, confirmación del número final de invitados y selección de menú.</li>
                 </ul>
                 <p class="quote-phrase">«Hacemos de tu celebración un recuerdo eterno. El arte de servir, hecho realidad.»</p>
+            </div>
+
+            <!-- ══ CIERRE: BOTONES DE WHATSAPP CON MENSAJE PRECARGADO ══ -->
+            <div class="cta-container reveal">
+                <h3 style="font-size:1.6rem; margin-bottom:10px;">¿Lista para asegurar la fecha de Ana?</h3>
+                <p style="font-style:normal; font-weight:400; color:var(--gray-text); max-width:640px; margin:0 auto 24px;">El precio especial de <strong>$285,000 MXN</strong> se respeta apartando dentro de septiembre 2026 con el 10% de anticipo. Elige una opción y se abrirá WhatsApp con el mensaje ya escrito — solo tienes que enviarlo.</p>
+                <div class="cta-botones">
+                    <a class="btn-wa" target="_blank" rel="noopener"
+                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Ya%20revis%C3%A9%20la%20cotizaci%C3%B3n%20de%20los%20XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%20(Paquete%20Vuelo%20Esmeralda%20personalizado%2C%20150%20invitados%2C%20%24285%2C000%20MXN)%20y%20quiero%20APARTAR%20LA%20FECHA%20del%2027%20de%20noviembre%20de%202027%20con%20el%2010%25%20de%20anticipo%20para%20respetar%20el%20precio%20especial%20de%20septiembre.%20%C2%BFMe%20confirman%20los%20datos%20para%20el%20dep%C3%B3sito%3F">
+                        <i class="fab fa-whatsapp"></i> Quiero apartar la fecha
+                    </a>
+                    <a class="btn-wa btn-wa-alt" target="_blank" rel="noopener"
+                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Quiero%20agendar%20la%20FIRMA%20DEL%20CONTRATO%20para%20los%20XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%20(Paquete%20Vuelo%20Esmeralda%20personalizado%2C%20150%20invitados%2C%20%24285%2C000%20MXN%2C%20evento%20del%2027%20de%20noviembre%20de%202027).%20%C2%BFQu%C3%A9%20d%C3%ADas%20y%20horarios%20tienen%20disponibles%2C%20y%20qu%C3%A9%20documentos%20debo%20llevar%3F">
+                        <i class="fab fa-whatsapp"></i> Agendar firma de contrato
+                    </a>
+                    <a class="btn-wa btn-wa-alt" target="_blank" rel="noopener"
+                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Quiero%20agendar%20la%20fecha%20de%20la%20DEGUSTACI%C3%93N%20para%204%20personas%20que%20viene%20de%20cortes%C3%ADa%20con%20el%20Paquete%20Vuelo%20Esmeralda%20(XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%2C%20evento%20del%2027%20de%20noviembre%20de%202027).%20%C2%BFQu%C3%A9%20fechas%20tienen%20disponibles%20y%20d%C3%B3nde%20se%20realiza%3F">
+                        <i class="fab fa-whatsapp"></i> Agendar degustación
+                    </a>
+                </div>
+                <p style="font-size:.78rem; color:var(--gray-text); margin:22px auto 0; max-width:640px; font-style:normal;">La degustación de cortesía para 4 personas se programa una vez firmado el contrato y cubierto el anticipo, con 30 a 45 días de anticipación al evento.</p>
             </div>
 
             <!-- ══ SECCIÓN DE CONTACTO DIRECTO CON PLANNERS (RICHARD Y JESSY) ══ -->
