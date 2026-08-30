@@ -433,7 +433,13 @@
         .slides-dots { display:flex; justify-content:center; gap:7px; margin-top:10px; }
         .slides-dots span { width:7px; height:7px; border-radius:50%; background:var(--beige); transition:all .3s; }
         .slides-dots span.on { background:var(--primary-pink); width:20px; border-radius:10px; }
-        @media (max-width:768px){ .slide-nav { display:none; } }
+        /* En movil las flechas SI se muestran (antes estaban ocultas): se hacen mas
+           compactas y se montan sobre la foto para no robar ancho a la tarjeta. */
+        @media (max-width:768px){
+            .slide-nav { width:36px; height:36px; font-size:.85rem;
+                background:rgba(255,255,255,.92); box-shadow:0 4px 14px rgba(31,31,31,.28); }
+            .slide-nav.prev { left:4px; } .slide-nav.next { right:4px; }
+        }
                 /* Las fotos crecen suavemente mientras recorres la pagina */
                 .include-img-container:not(.is-figura):not(.is-video) .include-img {
                     animation: sdZoomFoto linear both;
@@ -1029,7 +1035,7 @@
                         </tr>
                         <tr>
                             <td><strong>Degustación para 4 Personas</strong></td>
-                            <td>Se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</td>
+                            <td>Se realiza el mismo día en que se firma el contrato y se cubre el anticipo.</td>
                             <td class="align-right">Cortesía</td>
                         </tr>
                         <tr>
@@ -1422,7 +1428,7 @@
             <div class="includes-grid">
                 <div class="reveal reveal-left"><div class="include-item"><div class="include-img-container"><img class="include-img" loading="lazy" decoding="async" src="invitacion_digital.webp" alt="Invitación digital premium"></div><div class="include-content"><h4><i class="fas fa-envelope-open-text"></i> Invitación Digital Premium <span class="badge-extra">Cortesía adicional</span></h4><p>Invitación digital premium personalizada, con RSVP, mapa y galería interactiva.</p><p style="font-size:.78rem; margin-top:8px;"><em>La invitación demo es de boda: el diseño se personaliza y adapta por completo al estilo y contexto que elija la quinceañera.</em></p><div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;"><a class="btn-complemento" href="https://5410m0n0c001.github.io/INIT-IDEA/modelos-15-anos.html" target="_blank"><i class="fas fa-images"></i> Ver ejemplos de XV</a><a class="btn-complemento" href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" style="background:var(--primary-dark);"><i class="fas fa-mobile-screen"></i> Ver invitación demo</a></div></div></div></div>
                 <div class="reveal"><div class="include-item"><div class="include-img-container is-short" data-video="7r6OV9qjS30"></div><div class="include-content"><h4><i class="fas fa-hashtag"></i> Social Media Content <span class="badge-extra">Cortesía adicional</span></h4><p>Contenido ligero y vertical para redes sociales: reels del evento, dinámica del mazo de retos y buenos deseos de tus invitados en video.</p></div></div></div>
-                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="entrada_1.jpg"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Cortesía post-contrato: se programa una vez firmado el contrato y cubierto el anticipo, con 30-45 días de anticipación al evento.</p></div></div></div>
+                <div class="reveal reveal-right"><div class="include-item"><div class="include-img-container is-video"><video id="videoDegustacion" class="include-video" autoplay muted loop playsinline webkit-playsinline poster="entrada_1.jpg"><source src="degustacion_video.mp4" type="video/mp4"></video></div><div class="include-content"><h4><i class="fas fa-wine-glass-empty"></i> Degustación para 4 Personas <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Se realiza <strong>el mismo día en que se firma el contrato</strong> y se cubre el anticipo — así aprovechas la visita para dejar todo definido.</p></div></div></div>
                 <div class="reveal reveal-zoom"><div class="include-item"><div class="include-img-container is-short" data-video="Q4L2srgBU2E"></div><div class="include-content"><h4><i class="fas fa-clipboard-list"></i> Kit Organizador de Eventos <span class="badge-video"><i class="fas fa-play"></i> Video</span></h4><p>Plantilla de control de presupuesto (Excel) y guía maestra de organización (PDF) para planear tu evento paso a paso. Descárgalo más abajo.</p></div></div></div>
             </div>
 
@@ -1639,9 +1645,9 @@
                 <ul>
                     <li><strong>Precio especial vigente en septiembre 2026:</strong> los $285,000 MXN aplican únicamente si el apartado se formaliza dentro de septiembre 2026. El precio regular de lista para 150 invitados es de $2,099.00 MXN/persona ($314,850.00 MXN totales).</li>
                     <li><strong>Anticipo:</strong> depósito de apartado del 10% del total para activar el contrato.</li>
-                    <li><strong>Liquidación:</strong> a más tardar 30 días naturales antes del evento. Si no se cubre, el prestador puede cancelar sin responsabilidad.</li>
+                    <li><strong>Liquidación del total:</strong> se cubre de 30 a 45 días antes del evento. Si no se cubre, el prestador puede cancelar sin responsabilidad.</li>
                     <li><strong>Cancelación por parte del cliente:</strong> no aplica reembolso alguno ($0.00 MXN) sobre lo abonado.</li>
-                    <li><strong>Degustación:</strong> cortesía para 4 personas, se programa una vez firmado el contrato y cubierto el depósito de apartado, con 30-45 días de anticipación al evento (proteína base pollo o cerdo; upgrade a res +$70/persona o salmón +$90/persona).</li>
+                    <li><strong>Degustación:</strong> cortesía para 4 personas, se realiza <strong>el mismo día en que se firma el contrato</strong> y se cubre el anticipo (proteína base pollo o cerdo; upgrade a res +$70/persona o salmón +$90/persona).</li>
                     <li><strong>Neto sin impuestos:</strong> precios netos, el 16% de IVA aplica solo con factura fiscal oficial.</li>
                     <li><strong>Validez:</strong> esta cotización mantiene sus costos garantizados por 15 días a partir de su emisión.</li>
                     <li><strong>Duración del servicio:</strong> 1 hora de ceremonia religiosa + 1 hora de cóctel de bienvenida + 8 horas de banquete y fiesta.</li>
@@ -1662,15 +1668,11 @@
                         <i class="fab fa-whatsapp"></i> Quiero apartar la fecha
                     </a>
                     <a class="btn-wa btn-wa-alt" target="_blank" rel="noopener"
-                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Quiero%20agendar%20la%20FIRMA%20DEL%20CONTRATO%20para%20los%20XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%20(Paquete%20Vuelo%20Esmeralda%20personalizado%2C%20150%20invitados%2C%20%24285%2C000%20MXN%2C%20evento%20del%2027%20de%20noviembre%20de%202027).%20%C2%BFQu%C3%A9%20d%C3%ADas%20y%20horarios%20tienen%20disponibles%2C%20y%20qu%C3%A9%20documentos%20debo%20llevar%3F">
-                        <i class="fab fa-whatsapp"></i> Agendar firma de contrato
-                    </a>
-                    <a class="btn-wa btn-wa-alt" target="_blank" rel="noopener"
-                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Quiero%20agendar%20la%20fecha%20de%20la%20DEGUSTACI%C3%93N%20para%204%20personas%20que%20viene%20de%20cortes%C3%ADa%20con%20el%20Paquete%20Vuelo%20Esmeralda%20(XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%2C%20evento%20del%2027%20de%20noviembre%20de%202027).%20%C2%BFQu%C3%A9%20fechas%20tienen%20disponibles%20y%20d%C3%B3nde%20se%20realiza%3F">
-                        <i class="fab fa-whatsapp"></i> Agendar degustación
+                       href="https://api.whatsapp.com/send/?phone=527774587923&text=Hola%2C%20soy%20Ana.%20Quiero%20agendar%20la%20fecha%20para%20la%20FIRMA%20DEL%20CONTRATO%20Y%20LA%20DEGUSTACI%C3%93N%20para%204%20personas%20de%20los%20XV%20A%C3%B1os%20en%20Jard%C3%ADn%20Ts%C3%BA%20Nuum%20(Paquete%20Vuelo%20Esmeralda%20personalizado%2C%20150%20invitados%2C%20%24285%2C000%20MXN%2C%20evento%20del%2027%20de%20noviembre%20de%202027).%20%C2%BFQu%C3%A9%20d%C3%ADas%20y%20horarios%20tienen%20disponibles%2C%20d%C3%B3nde%20se%20realiza%20y%20qu%C3%A9%20documentos%20debo%20llevar%3F">
+                        <i class="fab fa-whatsapp"></i> Agendar firma de contrato y degustación
                     </a>
                 </div>
-                <p style="font-size:.78rem; color:var(--gray-text); margin:22px auto 0; max-width:640px; font-style:normal;">La degustación de cortesía para 4 personas se programa una vez firmado el contrato y cubierto el anticipo, con 30 a 45 días de anticipación al evento.</p>
+                <p style="font-size:.78rem; color:var(--gray-text); margin:22px auto 0; max-width:640px; font-style:normal;">La degustación de cortesía para 4 personas se realiza <strong>el mismo día de la firma del contrato</strong>, al cubrir el anticipo. La liquidación del total se cubre de 30 a 45 días antes del evento.</p>
             </div>
 
             <!-- ══ SECCIÓN DE CONTACTO DIRECTO CON PLANNERS (RICHARD Y JESSY) ══ -->
@@ -2101,30 +2103,57 @@
             dots.querySelectorAll('span').forEach(function(d, k){ d.classList.toggle('on', k === i); });
         }, { passive:true });
 
-        // Avance automatico: recorre las hojas solo mientras el carrusel esta a la vista.
-        // Se detiene si el cliente interactua, para no pelearle el control.
-        var timer = null, manual = false;
-        function arranca(){
-            if (timer || manual) return;
-            timer = setInterval(function(){
-                var w = slides[0].getBoundingClientRect().width + 16;
-                var fin = track.scrollWidth - track.clientWidth - 8;
-                if (track.scrollLeft >= fin) track.scrollTo({ left:0, behavior:'smooth' });
-                else track.scrollBy({ left:w, behavior:'smooth' });
-            }, 3200);
+        // ══ Avance automatico ══
+        // Recorre las fotos mientras el carrusel esta a la vista. Si el cliente
+        // interactua, se pausa un momento y se reanuda solo: en movil el primer
+        // toque para desplazar la pagina cae casi siempre sobre una foto, y antes
+        // eso apagaba el carrusel de forma definitiva.
+        var INTERVALO = 2400;   // tiempo entre foto y foto
+        var PRIMER_PASO = 900;  // arranca pronto al entrar en pantalla
+        var REANUDAR = 5000;    // espera tras una interaccion del cliente
+        var timer = null, arranqueInicial = null, pausa = null, visible = false;
+
+        // Nombre propio para no pisar la funcion paso(dir) que usan las flechas.
+        function pasoAuto(){
+            var w = slides[0].getBoundingClientRect().width + 16;
+            var fin = track.scrollWidth - track.clientWidth - 8;
+            if (track.scrollLeft >= fin) track.scrollTo({ left:0, behavior:'smooth' });
+            else track.scrollBy({ left:w, behavior:'smooth' });
         }
-        function detiene(){ clearInterval(timer); timer = null; }
+        function arranca(){
+            if (timer || pausa || !visible) return;
+            clearTimeout(arranqueInicial);
+            arranqueInicial = setTimeout(function(){
+                pasoAuto();
+                timer = setInterval(pasoAuto, INTERVALO);
+            }, PRIMER_PASO);
+        }
+        function detiene(){
+            clearInterval(timer); timer = null;
+            clearTimeout(arranqueInicial); arranqueInicial = null;
+        }
+        function pausaTemporal(){
+            detiene();
+            clearTimeout(pausa);
+            pausa = setTimeout(function(){ pausa = null; arranca(); }, REANUDAR);
+        }
+
         ['pointerdown','wheel','touchstart'].forEach(function(ev){
-            track.addEventListener(ev, function(){ manual = true; detiene(); }, { passive:true });
+            track.addEventListener(ev, pausaTemporal, { passive:true });
         });
         [document.getElementById(prevId), document.getElementById(nextId)].forEach(function(b){
-            b.addEventListener('click', function(){ manual = true; detiene(); });
+            b.addEventListener('click', pausaTemporal);
         });
         if ('IntersectionObserver' in window) {
             new IntersectionObserver(function(entries){
-                entries.forEach(function(e){ e.isIntersecting ? arranca() : detiene(); });
-            }, { threshold: 0.25 }).observe(track);
-        } else { arranca(); }
+                entries.forEach(function(e){
+                    visible = e.isIntersecting;
+                    if (visible) arranca(); else detiene();
+                });
+            // Umbral bajo para que tambien arranque en pantallas pequenas, donde el
+            // carrusel puede ocupar mas alto que la propia ventana.
+            }, { threshold: 0.05 }).observe(track);
+        } else { visible = true; arranca(); }
     }
     initCarrusel('slidesTrackCeremonia', 'slidesDotsCeremonia', 'slidePrevCeremonia', 'slideNextCeremonia');
     initCarrusel('slidesTrackCeremonia2', 'slidesDotsCeremonia2', 'slidePrevCeremonia2', 'slideNextCeremonia2');
