@@ -887,16 +887,11 @@
                             <td class="align-right">$5,000.00 MXN</td>
                         </tr>
 
-                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>REPOSTERÍA &amp; RECUERDOS</strong></td></tr>
+                        <tr style="background:var(--soft-pink);"><td colspan="3"><strong>REPOSTERÍA</strong></td></tr>
                         <tr>
                             <td><strong>Pastel de XV Años de Autor</strong></td>
                             <td>Desde, según kilos y pisos — se cotiza sobre diseño.</td>
                             <td class="align-right">Desde $9,000.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tequila Personalizado Don Ramón (750 ml, corte diamante)</strong></td>
-                            <td>Souvenir personalizado para invitados especiales.</td>
-                            <td class="align-right">$11,515.00 MXN</td>
                         </tr>
 
                         <tr style="background:var(--soft-pink);"><td colspan="3"><strong>FOTOGRAFÍA Y VIDEO (ELIGE 1 PAQUETE) — NO INCLUIDO EN EL PAQUETE BASE</strong></td></tr>
@@ -1321,9 +1316,8 @@
             { nombre: "Cabina Inflable de Fotos adicional (2 hrs, además de la opción sin costo ya incluida)", precio: 7000 },
             { nombre: "Cabina 360° adicional (1 hr, además de la opción sin costo ya incluida)", precio: 5000 },
         ]},
-        { categoria: "Repostería & Recuerdos", items: [
+        { categoria: "Repostería", items: [
             { nombre: "Pastel de XV Años de Autor (desde, según kilos y pisos)", precio: 9000 },
-            { nombre: "Tequila Personalizado Don Ramón (750 ml, corte diamante)", precio: 11515 },
         ]},
     ];
 
@@ -1337,7 +1331,7 @@
         let idCounter = 0;
         EXTRAS.forEach(cat => {
             html += `<div class="calc-category-title">${cat.categoria}</div>`;
-            if (cat.categoria === "Repostería & Recuerdos") {
+            if (cat.categoria === "Repostería") {
                 html += `
                 <div class="calc-video-demo" style="margin-bottom:14px; border-radius:16px; overflow:hidden; border:1px solid var(--beige); background:var(--white); padding:12px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
                     <div style="flex:1; min-width:220px; max-width:320px; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden;">
